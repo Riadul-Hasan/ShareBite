@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
     return (
@@ -31,19 +31,19 @@ const Navbar = () => {
                         `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
                         <li>Home</li>
                     </NavLink>
-                    <NavLink to="/explore" className={({ isActive }) =>
+                    <NavLink to="/availableFoods" className={({ isActive }) =>
                         `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
                         <li>Available Foods</li>
                     </NavLink>
-                    <NavLink to="/browseTips" className={({ isActive }) =>
+                    <NavLink to="/addFoods" className={({ isActive }) =>
                         `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
                         <li>Add Food</li>
                     </NavLink>
-                    <NavLink to="/browseTips" className={({ isActive }) =>
+                    <NavLink to="/manageFoods" className={({ isActive }) =>
                         `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
                         <li>Manage My Foods</li>
                     </NavLink>
-                    <NavLink to="/browseTips" className={({ isActive }) =>
+                    <NavLink to="/myFoodRequest" className={({ isActive }) =>
                         `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-amber-600' : 'hover:bg-orange-600 hover:bg-opacity-30 hover:text-white'}`}>
                         <li>My Food Request</li>
                     </NavLink>
@@ -53,8 +53,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end space-x-4">
-    <button className='btn btn-primary'>Login</button>
-    <button className='btn btn-secondary'>SignUp</button>
+    <Link to="/login"><button className='btn btn-primary'>Login</button></Link>
+    <Link to="/signUp"><button className='btn btn-secondary'>SignUp</button></Link>
   </div>
 </div>
     );
