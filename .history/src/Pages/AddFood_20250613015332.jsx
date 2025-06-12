@@ -1,12 +1,9 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router';
 
 const AddFood = () => {
     const {user} = use(AuthContext)
-    const navigate = useNavigate()
-
+    // console.log(user)
 
 
     const handleAddFood = (e)=>{
@@ -14,7 +11,7 @@ const AddFood = () => {
       const form = e.target;
         const formData = new FormData(form)
         const newData = Object.fromEntries(formData.entries())
-        // console.log(newData)
+        console.log(newData)
 
         const dataForDB = {
             ...newData,
@@ -23,29 +20,16 @@ const AddFood = () => {
         }
 
         // api req
-        fetch("http://localhost:3000/addFood", {
-          method: "POST", 
-          headers: {
-            "content-type": "application/json"
-          },
-          body: JSON.stringify(dataForDB)
+        fetch("http://localhost:3000/addFood")
+        .then(result =>{
+          console.log(result)
         })
-       .then(result => result.json())
-       .then(data =>{
-        // console.log(data)
-         if (data.insertedId) {
-                    Swal.fire({
-                        title: "Food Successfully added",
-                        icon: "success",
-                        draggable: true
-                    });
-                    navigate("/availableFoods")
-                }
-       })
+        .then(data =>{
+          console.log(data)
+        })
     }
     return (
-  <div className='bg-gradient-to-br from-red-50 via-amber-50 to-orange-50 py-16'>
-         <div className="max-w-2xl mx-auto   p-6 bg-white rounded-xl shadow-md border border-gray-100">
+       <div className="max-w-2xl mx-auto  p-6 bg-white rounded-xl shadow-md border border-gray-100">
   <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Food for Sharing</h2>
   
   {/* Donor Info Section */}
@@ -160,7 +144,6 @@ const AddFood = () => {
   </div>
   </form>
 </div>
-  </div>
     );
 };
 

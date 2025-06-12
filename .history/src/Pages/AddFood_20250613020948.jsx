@@ -44,7 +44,7 @@ const AddFood = () => {
        })
     }
     return (
-  <div className='bg-gradient-to-br from-red-50 via-amber-50 to-orange-50 py-16'>
+  <div className='bg-gradient-to-br from-green-50 via-teal-50 to-emerald-50'>
          <div className="max-w-2xl mx-auto   p-6 bg-white rounded-xl shadow-md border border-gray-100">
   <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Food for Sharing</h2>
   

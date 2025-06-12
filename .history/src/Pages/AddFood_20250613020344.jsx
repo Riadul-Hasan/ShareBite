@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 const AddFood = () => {
     const {user} = use(AuthContext)
     const navigate = useNavigate()
-
+    // console.log(user)
 
 
     const handleAddFood = (e)=>{
@@ -35,17 +35,16 @@ const AddFood = () => {
         // console.log(data)
          if (data.insertedId) {
                     Swal.fire({
-                        title: "Food Successfully added",
+                        title: "Tip Successfully added",
                         icon: "success",
                         draggable: true
                     });
-                    navigate("/availableFoods")
+                    navigate("/browseTips")
                 }
        })
     }
     return (
-  <div className='bg-gradient-to-br from-red-50 via-amber-50 to-orange-50 py-16'>
-         <div className="max-w-2xl mx-auto   p-6 bg-white rounded-xl shadow-md border border-gray-100">
+       <div className="max-w-2xl mx-auto  p-6 bg-white rounded-xl shadow-md border border-gray-100">
   <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Food for Sharing</h2>
   
   {/* Donor Info Section */}
@@ -160,7 +159,6 @@ const AddFood = () => {
   </div>
   </form>
 </div>
-  </div>
     );
 };
 
