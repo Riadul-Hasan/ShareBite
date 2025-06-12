@@ -12,8 +12,7 @@ const AddFood = () => {
     <h3 className="font-medium text-gray-700 mb-3">Your Information</h3>
     <div className="flex items-center space-x-4">
       <img 
-        src={user?.photoURL} 
-        referrerPolicy=''
+        src="/user-image.jpg" 
         alt="User" 
         className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
       />
