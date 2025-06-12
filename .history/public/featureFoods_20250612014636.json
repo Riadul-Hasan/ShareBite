@@ -1,0 +1,98 @@
+[
+  {
+    "foodName": "Fresh Vegetable Platter",
+    "foodImage": "https://example.com/images/vegetable-platter.jpg",
+    "quantity": 12,
+    "pickupLocation": "123 Green Valley Rd, Springfield",
+    "expiredDateTime": "2023-12-15T18:00:00Z",
+    "additionalNotes": "Organic vegetables from local farm",
+    "donorName": "Sarah Johnson",
+    "donorEmail": "sarah.johnson@example.com",
+    "donorImage": "https://example.com/profiles/sarah.jpg",
+    "foodStatus": "available"
+  },
+  {
+    "foodName": "Homemade Apple Pie",
+    "foodImage": "https://example.com/images/apple-pie.jpg",
+    "quantity": 8,
+    "pickupLocation": "456 Bakery Lane, Springfield",
+    "expiredDateTime": "2023-12-10T12:00:00Z",
+    "additionalNotes": "Made with organic apples, best before 5 days",
+    "donorName": "Mike's Bakery",
+    "donorEmail": "mike@bakery.example.com",
+    "donorImage": "https://example.com/profiles/mike.jpg",
+    "foodStatus": "available"
+  },
+  {
+    "foodName": "Mixed Fruit Basket",
+    "foodImage": "https://example.com/images/fruit-basket.jpg",
+    "quantity": 15,
+    "pickupLocation": "789 Orchard St, Springfield",
+    "expiredDateTime": "2023-12-12T15:30:00Z",
+    "additionalNotes": "Seasonal fruits including apples, oranges, and bananas",
+    "donorName": "Fresh Fruits Co.",
+    "donorEmail": "contact@freshfruits.example.com",
+    "donorImage": "https://example.com/profiles/fruits-co.jpg",
+    "foodStatus": "available"
+  },
+  {
+    "foodName": "Whole Grain Bread",
+    "foodImage": "https://example.com/images/wholegrain-bread.jpg",
+    "quantity": 20,
+    "pickupLocation": "321 Healthy Ave, Springfield",
+    "expiredDateTime": "2023-12-08T09:00:00Z",
+    "additionalNotes": "Freshly baked this morning, preservative-free",
+    "donorName": "Healthy Breads Inc.",
+    "donorEmail": "info@healthybreads.example.com",
+    "donorImage": "https://example.com/profiles/bread-company.jpg",
+    "foodStatus": "available"
+  },
+  {
+    "foodName": "Vegetable Soup Pack",
+    "foodImage": "https://example.com/images/vegetable-soup.jpg",
+    "quantity": 10,
+    "pickupLocation": "654 Soup Kitchen, Springfield",
+    "expiredDateTime": "2023-12-09T17:00:00Z",
+    "additionalNotes": "Pre-packaged vegetable soup, just heat and serve",
+    "donorName": "Community Kitchen",
+    "donorEmail": "kitchen@community.example.com",
+    "donorImage": "https://example.com/profiles/community-kitchen.jpg",
+    "foodStatus": "available"
+  },
+  {
+    "foodName": "Dairy Cheese Assortment",
+    "foodImage": "https://example.com/images/cheese-assortment.jpg",
+    "quantity": 7,
+    "pickupLocation": "987 Dairy Rd, Springfield",
+    "expiredDateTime": "2023-12-20T14:00:00Z",
+    "additionalNotes": "Variety of cheeses including cheddar, gouda, and brie",
+    "donorName": "Dairy Delights",
+    "donorEmail": "contact@dairydelights.example.com",
+    "donorImage": "https://example.com/profiles/dairy-delights.jpg",
+    "foodStatus": "available"
+  },
+  {
+    "foodName": "Organic Chicken Breast",
+    "foodImage": "https://example.com/images/chicken-breast.jpg",
+    "quantity": 5,
+    "pickupLocation": "147 Farm Way, Springfield",
+    "expiredDateTime": "2023-12-07T11:00:00Z",
+    "additionalNotes": "Free-range, organic chicken, must be cooked or frozen",
+    "donorName": "Green Pastures Farm",
+    "donorEmail": "orders@greenpastures.example.com",
+    "donorImage": "https://example.com/profiles/green-farm.jpg",
+    "foodStatus": "available"
+  },
+  {
+    "foodName": "Assorted Sandwiches",
+    "foodImage": "https://example.com/images/sandwiches.jpg",
+    "quantity": 18,
+    "pickupLocation": "258 Cafe Blvd, Springfield",
+    "expiredDateTime": "2023-12-06T16:00:00Z",
+    "additionalNotes": "Variety of sandwiches from our daily production",
+    "donorName": "Downtown Cafe",
+    "donorEmail": "info@downtowncafe.example.com",
+    "donorImage": "https://example.com/profiles/downtown-cafe.jpg",
+    "foodStatus": "available"
+  }
+]
