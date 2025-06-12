@@ -6,11 +6,7 @@ const AddFood = () => {
 
 
     const handleAddFood = (e)=>{
-      e.preventDefault()
-      const form = e.target;
-        const formData = new FormData(form)
-        const newData = Object.fromEntries(formData.entries())
-        console.log(newData)
+
     }
     return (
        <div className="max-w-2xl mx-auto  p-6 bg-white rounded-xl shadow-md border border-gray-100">
@@ -45,7 +41,6 @@ const AddFood = () => {
       </label>
       <input
         type="text"
-        name='name'
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
         placeholder="e.g., Fresh Apple Pie"
       />
@@ -58,7 +53,6 @@ const AddFood = () => {
       </label>
       <input
         type="url"
-        name='foodUrl'
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
         placeholder="https://example.com/food-image.jpg"
       />
@@ -73,7 +67,6 @@ const AddFood = () => {
         <input
           type="number"
           min="1"
-          name='quantity'
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
           placeholder="e.g., 5"
         />
@@ -84,7 +77,6 @@ const AddFood = () => {
         </label>
         <input
           type="datetime-local"
-          name='dateTime'
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
         />
       </div>
@@ -97,7 +89,6 @@ const AddFood = () => {
       </label>
       <input
         type="text"
-        name='location'
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
         placeholder="e.g., 123 Main St, City"
       />
@@ -110,7 +101,6 @@ const AddFood = () => {
       </label>
       <textarea
         rows="3"
-        name='notes'
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
         placeholder="Any special instructions or details about the food"
       ></textarea>

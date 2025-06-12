@@ -6,11 +6,7 @@ const AddFood = () => {
 
 
     const handleAddFood = (e)=>{
-      e.preventDefault()
-      const form = e.target;
-        const formData = new FormData(form)
-        const newData = Object.fromEntries(formData.entries())
-        console.log(newData)
+
     }
     return (
        <div className="max-w-2xl mx-auto  p-6 bg-white rounded-xl shadow-md border border-gray-100">
