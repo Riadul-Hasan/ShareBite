@@ -3,7 +3,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const AddFood = () => {
     const {user} = use(AuthContext)
-    // console.log(user)
+    console.log(user)
 
 
     const handleAddFood = (e)=>{
@@ -19,7 +19,7 @@ const AddFood = () => {
   
   {/* Donor Info Section */}
   <div className="bg-gray-50 p-4 rounded-lg mb-6">
-    <h3 className="font-medium text-gray-700 mb-3">My Information</h3>
+    <h3 className="font-medium text-gray-700 mb-3">Your Information</h3>
     <div className="flex items-center space-x-4">
       <img 
         src={user?.photoURL} 
@@ -29,7 +29,7 @@ const AddFood = () => {
       />
       <div>
         <p className="font-medium">{user?.displayName}</p>
-        <p className="text-sm text-gray-600">{user?.email}</p>
+        <p className="text-sm text-gray-600">john@example.com</p>
         <p className="text-sm text-gray-600">Food Status: available</p>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const AddFood = () => {
     const {user} = use(AuthContext)
-    // console.log(user)
+    console.log(user)
 
 
     const handleAddFood = (e)=>{

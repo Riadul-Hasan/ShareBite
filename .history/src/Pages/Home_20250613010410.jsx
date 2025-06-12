@@ -28,7 +28,7 @@ const Home = () => {
             <div>
                 <Additional2></Additional2>
             </div>
-            <div className='py-16'>
+            <div className='py-16 container mx-auto'>
                 
                 <Additional1></Additional1>
             </div>
