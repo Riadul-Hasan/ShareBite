@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import AvailableFoodCard from "./AvailableFoodCard";
@@ -10,9 +11,9 @@ const AvailableFoods = () => {
 
   const handleSort = () => {
     const sortedData = [...data].sort((a, b) => {
-      const dateOfA = new Date(a.dateTime);
-      const dateOfB = new Date(b.dateTime);
-      return sortOrder === "asc" ? dateOfA - dateOfB : dateOfB - dateOfA;
+      const dateA = new Date(a.dateTime);
+      const dateB = new Date(b.dateTime);
+      return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
     });
     setData(sortedData);
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
