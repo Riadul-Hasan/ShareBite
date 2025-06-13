@@ -52,11 +52,10 @@ export const router = createBrowserRouter([
       {
         path: "/singleFood/:id",
         loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
-        element: <PrivateRoute><SingleFood></SingleFood></PrivateRoute>
+        element: <SingleFood></SingleFood>
       },
       {
         path: "/updateFood/:id",
-        loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
         element: <PrivateRoute><UpdateManageFood></UpdateManageFood></PrivateRoute>
       }
     ],
