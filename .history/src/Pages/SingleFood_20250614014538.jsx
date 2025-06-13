@@ -225,7 +225,7 @@
 // export default SingleFood;
 
 
-import React, { use, useState } from 'react';
+import React, { use } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 
@@ -233,7 +233,7 @@ const SingleFood = () => {
     const singleFood = useLoaderData();
     const { user } = use(AuthContext);
     const { _id, name, foodUrl, quantity, location, notes, dateTime, foodStatus, donorName, donorEmail } = singleFood;
-    const [additionalNotes, setAdditionalNotes] = useState('');
+    const [additionalNotes, setAdditionalNotes] = React.useState('');
 
     const handleRequest = (e) => {
         e.preventDefault();

@@ -24,7 +24,7 @@ const ManageMyFoods = () => {
                 <img
                   src={food.foodUrl}
                   className="w-12 h-12 object-cover rounded"
-                 
+                  onError={(e) => (e.target.src = "/placeholder-food.jpg")}
                 />
               </td>
               <td className="px-6 border border-base-300">

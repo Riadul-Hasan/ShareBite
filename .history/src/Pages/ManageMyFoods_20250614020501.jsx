@@ -1,0 +1,13 @@
+import React from 'react';
+import { useLoaderData } from 'react-router';
+
+const ManageMyFoods = () => {
+    const data = useLoaderData()
+    return (
+        <div>
+            Manage foods
+        </div>
+    );
+};
+
+export default ManageMyFoods;
