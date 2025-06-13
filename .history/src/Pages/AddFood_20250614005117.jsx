@@ -141,7 +141,7 @@ const AddFood = () => {
       </label>
       <input
         type="text"
-        name='donorImage'
+        name='location'
         value={user?.photoURL}
         readOnly
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
@@ -155,7 +155,7 @@ const AddFood = () => {
       </label>
       <input
         type="text"
-        name='donorName'
+        name='location'
         value={user?.displayName}
         readOnly
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
@@ -169,7 +169,7 @@ const AddFood = () => {
       </label>
       <input
         type="text"
-        name='donorEmail'
+        name='location'
         value={user?.email}
         readOnly
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"

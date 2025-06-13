@@ -130,7 +130,7 @@ const SingleFood = () => {
           {/* request date or current */}
           <div>
             <label className="label">
-              <span className="label-text font-medium">Request Date</span>
+              <span className="label-text font-medium">Expiry Date</span>
             </label>
             <input 
               type="text" 

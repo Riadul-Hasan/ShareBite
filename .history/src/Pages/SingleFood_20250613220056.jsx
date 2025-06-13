@@ -5,7 +5,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 const SingleFood = () => {
     const singleFood = useLoaderData()
     const {user} = use(AuthContext)
-    const {name, foodUrl, quantity, location, notes, dateTime, foodStatus, donorName, donorEmail}= singleFood
+    const {name, foodUrl, quantity, location, notes, dateTime, foodStatus}= singleFood
     console.log(singleFood)
     return (
 
@@ -44,8 +44,6 @@ const SingleFood = () => {
       <span className="font-medium">Expires:</span>
       <span>{new Date(dateTime).toLocaleDateString()}</span>
     </div>
-
-   
     
     <div className={`badge ${foodStatus === 'available' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'} mt-2`}>
       Status: {foodStatus}
@@ -127,39 +125,16 @@ const SingleFood = () => {
               className="input input-bordered w-full bg-gray-50"
             />
           </div>
-          {/* request date or current */}
-          <div>
-            <label className="label">
-              <span className="label-text font-medium">Request Date</span>
-            </label>
-            <input 
-              type="text" 
-              value={new Date().toLocaleDateString()} 
-              readOnly 
-              className="input input-bordered w-full bg-gray-50"
-            />
-          </div>
-          <div>
-            <label className="label">
-              <span className="label-text font-medium">Donor Name</span>
-            </label>
-            <input 
-              type="text" 
-              value={donorName} 
-              readOnly 
-              className="input input-bordered w-full bg-gray-50"
-            />
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="label">
-              <span className="label-text font-medium">Donor Email</span>
+              <span className="label-text font-medium">Donated By</span>
             </label>
             <input 
               type="text" 
-              value={donorEmail} 
+              value={user?.displayName} 
               readOnly 
               className="input input-bordered w-full bg-gray-50"
             />
