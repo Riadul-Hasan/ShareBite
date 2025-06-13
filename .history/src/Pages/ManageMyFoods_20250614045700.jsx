@@ -3,13 +3,13 @@ import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
 const ManageMyFoods = () => {
-  const initialData = useLoaderData();
-  const [manageFood, setManageFood] = useState(initialData)
+  const data = useLoaderData();
+  const [manageFood, setManageFood] = useState([])
 //   console.log(data);
 
 
   const handleDelete = (id) => {
-        console.log(id)
+        // console.log(id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -33,8 +33,8 @@ const ManageMyFoods = () => {
                                 icon: "success"
                             });
                             // delete from ui
-                            const remainingFood = manageFood.filter(rem => rem._id !== id)
-                            setManageFood(remainingFood)
+                            const remainingTips = manageFood.filter(rem => rem._id !== id)
+                            setManageFood(remainingTips)
                         }
                     })
 
@@ -55,7 +55,7 @@ const ManageMyFoods = () => {
           </tr>
         </thead>
         <tbody>
-          {manageFood.map((food) => (
+          {data.map((food) => (
             <tr key={food._id}>
               <td>
                 <img
