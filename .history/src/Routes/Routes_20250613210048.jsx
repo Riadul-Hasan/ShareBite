@@ -49,7 +49,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "/singleFood/:id",
-        loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
         Component: SingleFood
       }
     ],

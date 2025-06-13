@@ -22,7 +22,7 @@ const AvailableFoods = () => {
 
   return (
     <div>
-      <section className="mb-10">
+      <section className="">
         <div className="flex justify-between items-center bg-gradient-to-r from-amber-50 to-orange-50  p-4 md:p-16 lg:p-18">
           <div>
             <h2 className="text-3xl font-bold flex items-center gap-2"><MdOutlineEventAvailable />Available Foods</h2>

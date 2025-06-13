@@ -4,7 +4,6 @@ import { useLoaderData } from "react-router";
 import AvailableFoodCard from "./AvailableFoodCard";
 import { MdOutlineEventAvailable } from "react-icons/md";
 
-
 const AvailableFoods = () => {
   const initialData = useLoaderData();
   const [data, setData] = useState(initialData);
@@ -22,10 +21,10 @@ const AvailableFoods = () => {
 
   return (
     <div>
-      <section className="mb-10">
+      <section className="">
         <div className="flex justify-between items-center bg-gradient-to-r from-amber-50 to-orange-50  p-4 md:p-16 lg:p-18">
           <div>
-            <h2 className="text-3xl font-bold flex items-center gap-2"><MdOutlineEventAvailable />Available Foods</h2>
+            <h2 className="text-3xl font-bold"><MdOutlineEventAvailable size={30}/>Available Foods</h2>
             <p className="mt-4 text-center md:text-left text-amber-700/80 max-w-2xl">
               Discover fresh meals shared by your community. Sort to find what
               needs to be claimed soonest.

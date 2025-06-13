@@ -43,7 +43,7 @@ const AvailableFoodCard = ({food}) => {
     )}
 
     <div className="card-actions justify-end pt-3">
-      <Link to={`/singleFood/${_id}`}>
+      <Link to={`/availableFoods/${_id}`}>
         <button className="btn btn-primary rounded-full px-6 bg-amber-500 border-amber-500 hover:bg-amber-600 text-white">
         View Details
       </button>

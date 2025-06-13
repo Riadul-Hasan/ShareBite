@@ -48,8 +48,7 @@ export const router = createBrowserRouter([
         Component: SingUp
       },
       {
-        path: "/singleFood/:id",
-        loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
+        path: "/singleFood",
         Component: SingleFood
       }
     ],

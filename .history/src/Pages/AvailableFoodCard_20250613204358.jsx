@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 const AvailableFoodCard = ({food}) => {
-    const {name, foodUrl, quantity, location, notes, dateTime, _id} = food;
+    const {name, foodUrl, quantity, location, notes, dateTime} = food;
     return (
 <div className="card bg-white w-96 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
 
@@ -36,18 +35,18 @@ const AvailableFoodCard = ({food}) => {
       <span>Expires: {new Date(dateTime).toLocaleDateString()}</span>
     </div>
 
+    {/* Notes with Fade Effect */}
     {notes && (
       <p className="text-sm text-gray-700 line-clamp-2">
         <span className="font-medium">🍴</span> {notes}
       </p>
     )}
 
+    {/* View Button */}
     <div className="card-actions justify-end pt-3">
-      <Link to={`/singleFood/${_id}`}>
-        <button className="btn btn-primary rounded-full px-6 bg-amber-500 border-amber-500 hover:bg-amber-600 text-white">
+      <button className="btn btn-primary rounded-full px-6 bg-amber-500 border-amber-500 hover:bg-amber-600 text-white">
         View Details
       </button>
-      </Link>
     </div>
   </div>
 </div>
