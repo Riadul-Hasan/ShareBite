@@ -28,7 +28,7 @@ const Navbar = () => {
             })
     ]
     return (
-        <div className="navbar bg-base-300  px-8 py-4 rounded-lg">
+        <div className="navbar bg-gradient-to-r bg-base-300  px-8 py-4 rounded-lg">
             {/* Mobile menu button (unchanged functionality) */}
             <div className="navbar-start ">
                 <div className="dropdown">

@@ -170,12 +170,12 @@ const MyFoodRequest = () => {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-green-500">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white ">Food</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white ">Donor</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white ">Location</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white ">Expiry</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white ">Request Date</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white ">Action</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase">Food</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase">Donor</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase">Location</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase">Expiry</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase">Request Date</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase">Action</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
