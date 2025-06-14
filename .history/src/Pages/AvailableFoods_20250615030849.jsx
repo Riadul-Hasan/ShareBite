@@ -46,7 +46,7 @@ const AvailableFoods = () => {
   } gap-6`;
 
   return (
-    <div className="mb-10">
+    <div className="py-10">
       <section className="mb-10">
         <div className="flex flex-col md:flex-row justify-between items-center bg-gradient-to-r from-amber-50 to-orange-50 p-4 md:p-16 lg:p-18 gap-4">
           <div>
@@ -86,7 +86,6 @@ const AvailableFoods = () => {
       </section>
 
       <div className="text-center py-6 px-4">
-        <h5 className="text-lg font-semibold py-2">Search Food</h5>
   <input
     type="text"
     placeholder="Search food by name..."

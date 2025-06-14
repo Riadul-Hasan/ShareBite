@@ -59,7 +59,7 @@ const ManageMyFoods = () => {
           <div className="text-center text-red-500 text-2xl p-10 bg-base-300 font-semibold py-20">
                     <p>No request added yet.</p>
                 </div>
-     ): (<div className="overflow-x-auto w-3/4 mx-auto   bg-white">
+     ): (<div className="overflow-x-auto w-3/4 mx-auto pb-10 pt-4  bg-white">
       <table className="table">
         <thead>
           <tr className="bg-base-300">

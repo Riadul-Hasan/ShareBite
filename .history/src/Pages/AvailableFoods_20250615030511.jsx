@@ -46,7 +46,7 @@ const AvailableFoods = () => {
   } gap-6`;
 
   return (
-    <div className="mb-10">
+    <div className="py-10">
       <section className="mb-10">
         <div className="flex flex-col md:flex-row justify-between items-center bg-gradient-to-r from-amber-50 to-orange-50 p-4 md:p-16 lg:p-18 gap-4">
           <div>
@@ -85,15 +85,66 @@ const AvailableFoods = () => {
         </div>
       </section>
 
-      <div className="text-center py-6 px-4">
-        <h5 className="text-lg font-semibold py-2">Search Food</h5>
-  <input
-    type="text"
-    placeholder="Search food by name..."
-    className="input w-full rounded-xl border-2 border-amber-400 hover:border-blue-400 focus:border-blue-400 focus:outline-none max-w-md bg-white"
-    value={searchTerm}
-    onChange={handleSearchChange}
-  />
+      {/* <div className="text-center py-10 px-4">
+        <input
+          type="text"
+          placeholder="Search food by name..."
+          className="input input-bordered w-full max-w-md"
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </div> */}
+
+      <div className="text-center py-10 px-4">
+  <div className="relative inline-block w-full max-w-md">
+    <input
+      type="text"
+      placeholder="Search food by name..."
+      className="input input-bordered w-full pl-12 pr-4 py-3 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300 transition-all duration-200 bg-white text-gray-700"
+      value={searchTerm}
+      onChange={handleSearchChange}
+    />
+    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+      <svg 
+        className="h-5 w-5 text-amber-500" 
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor"
+      >
+        <path 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth={2} 
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+        />
+      </svg>
+    </div>
+    {searchTerm && (
+      <button
+        onClick={() => setSearchTerm('')}
+        className="absolute inset-y-0 right-0 pr-3 flex items-center"
+      >
+        <svg 
+          className="h-5 w-5 text-gray-400 hover:text-amber-600 transition-colors" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M6 18L18 6M6 6l12 12" 
+          />
+        </svg>
+      </button>
+    )}
+  </div>
+  {searchTerm && (
+    <p className="mt-2 text-sm text-amber-600">
+      Searching for: <span className="font-medium">"{searchTerm}"</span>
+    </p>
+  )}
 </div>
 
       <div className={gridClasses}>
