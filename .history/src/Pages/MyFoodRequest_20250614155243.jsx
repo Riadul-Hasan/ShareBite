@@ -20,8 +20,73 @@ const MyFoodRequest = () => {
 
     return (
        
-    
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-amber-50 py-12 px-4 sm:px-6 lg:px-8">
+    //     <div className='container mx-auto mb-32'>
+    //         <title>My Food Requests</title>
+    //         <h2 className='text-3xl  text-center font-bold py-10  dark:text-base-content'>My Food Request</h2>
+
+
+    //         <div className="avatar flex items-center justify-center">
+    //             <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
+    //                 <img src={user.photoURL} />
+    //             </div>
+    //         </div>
+
+    //         <div className="text-center py-10">
+    //             <p><span className='text-xl font-bold text-blue-500'>Username:</span> <span className='font-semibold'>{user.displayName}</span></p>
+    //             <p><span className='text-xl font-bold text-blue-500'>Email:</span> <span className='font-semibold'>{user.email}</span></p>
+    //         </div>
+
+    //         {myRequest.length < 1 ? (
+    //             <div className="text-center text-red-500 text-2xl p-10 bg-base-300 font-semibold py-20">
+    //                 <p>No tips added yet.</p>
+    //             </div>
+    //         ) : (
+    //             <div className="overflow-x-auto w-3/4 mx-auto py-16">
+    //   <table className="table">
+    //     <thead>
+    //       <tr className="bg-base-300">
+    //         <th>Food Image </th>
+    //         <th>Name </th>
+    //         <th>Pickup Location</th>
+    //         {/* <th>Expiry Date</th> */}
+    //         <th>Expiry Date</th>
+    //         <th>Request Date</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {myRequest.map((request) => (
+    //         <tr key={request._id}>
+    //           <td>
+    //             <img
+    //               src={request.foodImage}
+    //               className="w-12 h-12 object-cover rounded"
+                 
+    //             />
+    //           </td>
+    //           <td className="px-6 border border-base-300">
+    //             <div className="flex items-center gap-3 lg:px-6 ">
+    //               <div className="lg:font-bold text-sm ">{request.donorName}</div>
+    //             </div>
+    //           </td>
+    //           <td className="px-6 border border-base-300 ">{request.pickupLocation}</td>
+    //           {/* <td className="px-6 border-b border-base-300">{food.dateTime}</td> */}
+    //           <td className="flex gap-4 items-center p-6 px-6 border border-base-300">
+    //             {request.expireDate}
+    //           </td>
+    //           <td className="px-6 border border-base-300">
+    //             <div className="flex items-center gap-3 lg:px-6 ">
+    //               <div className=" text-sm ">{request.requestDate}</div>
+    //             </div>
+    //           </td>
+              
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </table>
+    // </div>
+    //         )}
+    //     </div>
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-cyan-50 py-12 px-4 sm:px-6 lg:px-8">
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-12">
       <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">
@@ -30,7 +95,7 @@ const MyFoodRequest = () => {
       
       <div className="flex flex-col items-center justify-center space-y-6">
         <div className="avatar">
-          <div className="w-32 rounded-full ring-4 ring-cyan-500 ring-offset-4 ring-offset-pink-50">
+          <div className="w-32 rounded-full ring-4 ring-green-500 ring-offset-4 ring-offset-green-50">
             <img src={user.photoURL} alt="User profile" className="object-cover" />
           </div>
         </div>

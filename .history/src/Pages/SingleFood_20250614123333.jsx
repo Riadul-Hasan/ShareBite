@@ -251,13 +251,13 @@ const SingleFood = () => {
             requesterEmail: user.email,
             requestDate: new Date().toISOString(),
             additionalNotes,
-            foodStatus: 'requested'
+            status: 'pending'
         };
         console.log("Request Data:", requestData);
         document.getElementById('request_modal').close();
 
           // api req
-                fetch("http://localhost:3000/myRequest", {
+                fetch("http://localhost:3000/addFood", {
                   method: "POST", 
                   headers: {
                     "content-type": "application/json"

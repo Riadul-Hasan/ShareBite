@@ -54,8 +54,8 @@ const ManageMyFoods = () => {
     }
 
   return (
-    <div className="bg-gradient-to-b from-orange-50 to-rose-100 min-h-[calc(100vh-250px)] ">
-      <div className="overflow-x-auto w-3/4 mx-auto pb-10 pt-4  bg-white">
+    <div className="bg-gradient-to-b from-orange-50 to-rose-100">
+      <div className="overflow-x-auto w-3/4 mx-auto py-10 min-h-[calc(100vh-250px)] bg-white">
       <table className="table">
         <thead>
           <tr className="bg-base-300">

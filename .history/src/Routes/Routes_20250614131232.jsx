@@ -11,7 +11,7 @@ import PrivateRoute from "../provider/PrivateRoute";
 import SingleFood from "../Pages/SingleFood";
 import UpdateManageFood from "../Pages/UpdateManageFood";
 import Loading from "../components/Loading";
-
+import axios from "axios";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myFoodRequest",
-        // loader: ()=> fetch('http://localhost:3000/myRequest'),
+       
         element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
       },
       {

@@ -30,7 +30,7 @@ const MyFoodRequest = () => {
       
       <div className="flex flex-col items-center justify-center space-y-6">
         <div className="avatar">
-          <div className="w-32 rounded-full ring-4 ring-cyan-500 ring-offset-4 ring-offset-pink-50">
+          <div className="w-32 rounded-full ring-4 ring-green-500 ring-offset-4 ring-offset-green-50">
             <img src={user.photoURL} alt="User profile" className="object-cover" />
           </div>
         </div>

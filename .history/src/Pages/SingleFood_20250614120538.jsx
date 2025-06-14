@@ -226,14 +226,12 @@
 
 
 import React, { use, useState } from 'react';
-import { useLoaderData, useNavigate } from 'react-router';
+import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
-import Swal from 'sweetalert2';
 
 const SingleFood = () => {
     const singleFood = useLoaderData();
     const { user } = use(AuthContext);
-    const navigate = useNavigate()
     const { _id, name, foodUrl, quantity, location, notes, dateTime, foodStatus, donorName, email } = singleFood;
     const [additionalNotes, setAdditionalNotes] = useState('');
 
@@ -251,31 +249,10 @@ const SingleFood = () => {
             requesterEmail: user.email,
             requestDate: new Date().toISOString(),
             additionalNotes,
-            foodStatus: 'requested'
+            status: 'pending'
         };
         console.log("Request Data:", requestData);
         document.getElementById('request_modal').close();
-
-          // api req
-                fetch("http://localhost:3000/myRequest", {
-                  method: "POST", 
-                  headers: {
-                    "content-type": "application/json"
-                  },
-                  body: JSON.stringify(requestData)
-                })
-               .then(result => result.json())
-               .then(data =>{
-                // console.log(data)
-                 if (data.insertedId) {
-                            Swal.fire({
-                                title: "Food Successfully added",
-                                icon: "success",
-                                draggable: true
-                            });
-                            navigate("/myFoodRequest")
-                        }
-               })
     };
 
     return (

@@ -1,11 +1,10 @@
 import React, { use, useEffect, useState } from "react";
-// import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from "react-router";
 
 const ManageMyFoods = () => {
-  // const initialData = useLoaderData();
+  const initialData = useLoaderData();
   const {user} = use(AuthContext)
   // const [manageFood, setManageFood] = useState(initialData)
   const [myFood, setMyFood] = useState([])
@@ -54,8 +53,7 @@ const ManageMyFoods = () => {
     }
 
   return (
-    <div className="bg-gradient-to-b from-orange-50 to-rose-100 min-h-[calc(100vh-250px)] ">
-      <div className="overflow-x-auto w-3/4 mx-auto pb-10 pt-4  bg-white">
+    <div className="overflow-x-auto w-3/4 mx-auto py-16">
       <table className="table">
         <thead>
           <tr className="bg-base-300">
@@ -93,7 +91,6 @@ const ManageMyFoods = () => {
           ))}
         </tbody>
       </table>
-    </div>
     </div>
   );
 };

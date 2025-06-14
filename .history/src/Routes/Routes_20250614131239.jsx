@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myFoodRequest",
-        // loader: ()=> fetch('http://localhost:3000/myRequest'),
+       
         element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
       },
       {
