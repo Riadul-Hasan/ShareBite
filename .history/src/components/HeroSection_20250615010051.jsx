@@ -11,7 +11,7 @@ const HeroSection = () => {
     const banners = [
         {
             id: 1,
-            image: Food2,
+            image: Food1,
             title: 'Share & Discover Fresh Meals',
             description: 'Join our network to share extra food with neighbors and access free meals in your area',
             buttonText: 'Explore'
@@ -19,8 +19,8 @@ const HeroSection = () => {
         {
             id: 1,
             image: Food1,
-            title: 'Nourish Your Community',
-            description: 'Every shared meal makes a difference - find or offer fresh food with those around you',
+            title: 'Share & Discover Fresh Meals',
+            description: 'Join our network to share extra food with neighbors and access free meals in your area',
             buttonText: 'Explore'
         }
         // {
