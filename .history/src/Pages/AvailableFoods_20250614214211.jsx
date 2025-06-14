@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import AvailableFoodCard from "./AvailableFoodCard";
-import { MdOutlineEventAvailable, MdGridOn, MdViewAgenda } from "react-icons/md";
+import { MdOutlineEventAvailable, MdSearch } from "react-icons/md";
 
 const AvailableFoods = () => {
   const initialData = useLoaderData();
   const [data, setData] = useState(initialData);
   const [sortOrder, setSortOrder] = useState("asc");
-  const [layoutColumns, setLayoutColumns] = useState(3); 
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSort = () => {
     const sortedData = [...data].sort((a, b) => {
@@ -19,12 +19,21 @@ const AvailableFoods = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
-  const toggleLayout = () => {
-    setLayoutColumns(prev => prev === 3 ? 2 : 3);
-  };
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (!searchTerm.trim()) {
+      setData(initialData);
+      return;
+    }
 
-  
-  const gridClasses = `container mx-auto grid grid-cols-1 md:grid-cols-${layoutColumns === 3 ? '2 lg:grid-cols-3' : '2'} gap-6`;
+    try {
+      const response = await fetch(`/searchFoods?term=${encodeURIComponent(searchTerm)}`);
+      const results = await response.json();
+      setData(results);
+    } catch (error) {
+      console.error("Search failed:", error);
+    }
+  };
 
   return (
     <div className="py-10">
@@ -40,21 +49,18 @@ const AvailableFoods = () => {
             </p>
           </div>
 
-          <div className="flex gap-4">
-            <button
-              onClick={toggleLayout}
-              className="btn bg-gradient-to-r from-amber-400 to-amber-600 text-white rounded-xl border-none flex items-center gap-2"
-            >
-              {layoutColumns === 3 ? (
-                <>
-                  <MdViewAgenda /> 2 Columns
-                </>
-              ) : (
-                <>
-                  <MdGridOn /> 3 Columns
-                </>
-              )}
-            </button>
+          <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+            <form onSubmit={handleSearch} className="relative w-full md:w-64">
+              <input
+                type="text"
+                placeholder="Search by food name..."
+                className="w-full pl-10 pr-4 py-2 rounded-lg border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <MdSearch className="absolute left-3 top-3 text-amber-500" />
+            </form>
+
             <button
               onClick={handleSort}
               className="btn bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl border-none"
@@ -66,7 +72,7 @@ const AvailableFoods = () => {
         </div>
       </section>
 
-      <div className={gridClasses}>
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {data.map((food) => (
           <AvailableFoodCard key={food._id} food={food} />
         ))}

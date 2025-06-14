@@ -7,7 +7,7 @@ const AvailableFoods = () => {
   const initialData = useLoaderData();
   const [data, setData] = useState(initialData);
   const [sortOrder, setSortOrder] = useState("asc");
-  const [layoutColumns, setLayoutColumns] = useState(3); 
+  const [layoutColumns, setLayoutColumns] = useState(3); // 3 columns by default
 
   const handleSort = () => {
     const sortedData = [...data].sort((a, b) => {
@@ -23,7 +23,7 @@ const AvailableFoods = () => {
     setLayoutColumns(prev => prev === 3 ? 2 : 3);
   };
 
-  
+  // Determine grid classes based on layoutColumns state
   const gridClasses = `container mx-auto grid grid-cols-1 md:grid-cols-${layoutColumns === 3 ? '2 lg:grid-cols-3' : '2'} gap-6`;
 
   return (
