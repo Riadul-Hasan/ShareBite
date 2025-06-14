@@ -6,9 +6,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 const ManageMyFoods = () => {
   const initialData = useLoaderData();
   const {user} = use(AuthContext)
-  // const [manageFood, setManageFood] = useState(initialData)
+  const [manageFood, setManageFood] = useState(initialData)
   const [myFood, setMyFood] = useState([])
-  console.log(user);
+//   console.log(data);
 
 
   useEffect(() => {

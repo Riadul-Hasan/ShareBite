@@ -32,8 +32,8 @@ const SingUp = () => {
 
         const form = e.target;
         const formData = new FormData(form)
-        const { email, password, name, photoUrl} = Object.fromEntries(formData.entries())
-      
+        const { email, password} = Object.fromEntries(formData.entries())
+        // console.log(email, password, photoUrl, userProfile)
 
 
 
@@ -57,18 +57,14 @@ const SingUp = () => {
         // }
 
 
-  createUser(email, password)
+
+        createUser(email, password)
             .then(result => {
                 const user = result.user
-        
+                // profile info in mongodb
                 updateUser({ displayName: name, photoURL: photoUrl })
                     .then(() => {
                         setUser({ ...user, displayName: name, photoURL: photoUrl })
-                         Swal.fire({
-                                title: "Account Created Successfully",
-                                icon: "success",
-                                draggable: true
-                            });
                     })
                     .catch(error => {
                         console.log(error)

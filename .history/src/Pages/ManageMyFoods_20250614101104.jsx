@@ -8,7 +8,7 @@ const ManageMyFoods = () => {
   const {user} = use(AuthContext)
   // const [manageFood, setManageFood] = useState(initialData)
   const [myFood, setMyFood] = useState([])
-  console.log(user);
+//   console.log(data);
 
 
   useEffect(() => {

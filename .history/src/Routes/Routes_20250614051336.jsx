@@ -54,13 +54,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/singleFood/:id",
-        hydrateFallbackElement: <Loading></Loading>,
         loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
         element: <PrivateRoute><SingleFood></SingleFood></PrivateRoute>
       },
       {
         path: "/updateFood/:id",
-        hydrateFallbackElement: <Loading></Loading>,
         loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
         element: <PrivateRoute><UpdateManageFood></UpdateManageFood></PrivateRoute>
       }

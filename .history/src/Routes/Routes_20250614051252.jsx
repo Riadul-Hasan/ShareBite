@@ -30,13 +30,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/manageFoods",
-        hydrateFallbackElement: <Loading></Loading>,
         loader: ()=> fetch("http://localhost:3000/addFood"),
         element: <PrivateRoute><ManageMyFoods></ManageMyFoods></PrivateRoute>,
       },
       {
         path: "/availableFoods",
-        hydrateFallbackElement: <Loading></Loading>,
         loader: ()=> fetch("http://localhost:3000/addFood"),
         Component: AvailableFoods,
       },
@@ -54,13 +52,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/singleFood/:id",
-        hydrateFallbackElement: <Loading></Loading>,
         loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
         element: <PrivateRoute><SingleFood></SingleFood></PrivateRoute>
       },
       {
         path: "/updateFood/:id",
-        hydrateFallbackElement: <Loading></Loading>,
         loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
         element: <PrivateRoute><UpdateManageFood></UpdateManageFood></PrivateRoute>
       }

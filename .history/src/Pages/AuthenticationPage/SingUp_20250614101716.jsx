@@ -7,7 +7,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const SingUp = () => {
-     const { createUser,  setUser,updateUser, googlePopUp } = use(AuthContext)
+     const { createUser, updateUser, setUser, googlePopUp } = use(AuthContext)
     const navigate = useNavigate()
     const [error, setError] = useState("")
 
@@ -16,7 +16,7 @@ const SingUp = () => {
         googlePopUp()
             .then(() => {
                 Swal.fire({
-                    title: "Sign Up Success",
+                    title: "Sign In Success",
                     icon: "success",
                     draggable: true
                 });
@@ -32,8 +32,8 @@ const SingUp = () => {
 
         const form = e.target;
         const formData = new FormData(form)
-        const { email, password, name, photoUrl} = Object.fromEntries(formData.entries())
-      
+        const { email, password, name, photoUrl, ...userProfile } = Object.fromEntries(formData.entries())
+        // console.log(email, password, photoUrl, userProfile)
 
 
 
@@ -57,24 +57,12 @@ const SingUp = () => {
         // }
 
 
-  createUser(email, password)
+
+        createUser(email, password)
             .then(result => {
                 const user = result.user
-        
-                updateUser({ displayName: name, photoURL: photoUrl })
-                    .then(() => {
-                        setUser({ ...user, displayName: name, photoURL: photoUrl })
-                         Swal.fire({
-                                title: "Account Created Successfully",
-                                icon: "success",
-                                draggable: true
-                            });
-                    })
-                    .catch(error => {
-                        console.log(error)
-                        setUser(user)
-                    })
-              
+                console.log(user)
+               
                 navigate("/")
 
             })

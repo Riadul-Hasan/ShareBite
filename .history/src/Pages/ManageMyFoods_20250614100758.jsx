@@ -6,15 +6,14 @@ import { AuthContext } from "../Provider/AuthProvider";
 const ManageMyFoods = () => {
   const initialData = useLoaderData();
   const {user} = use(AuthContext)
-  // const [manageFood, setManageFood] = useState(initialData)
-  const [myFood, setMyFood] = useState([])
-  console.log(user);
+  const [manageFood, setManageFood] = useState(initialData)
+//   console.log(data);
 
 
   useEffect(() => {
         fetch(`http://localhost:3000/manageFoods?email=${user.email}`)
             .then(res => res.json())
-            .then(data => setMyFood(data))
+            .then(data => setMyTip(data))
     }, [user])
 
 
@@ -43,8 +42,8 @@ const ManageMyFoods = () => {
                                 icon: "success"
                             });
                             // delete from ui
-                            const remainingFood = myFood.filter(rem => rem._id !== id)
-                            setMyFood(remainingFood)
+                            const remainingFood = manageFood.filter(rem => rem._id !== id)
+                            setManageFood(remainingFood)
                         }
                     })
 
@@ -65,7 +64,7 @@ const ManageMyFoods = () => {
           </tr>
         </thead>
         <tbody>
-          {myFood.map((food) => (
+          {manageFood.map((food) => (
             <tr key={food._id}>
               <td>
                 <img

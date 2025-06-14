@@ -32,7 +32,7 @@ const SingUp = () => {
 
         const form = e.target;
         const formData = new FormData(form)
-        const { email, password, name, photoUrl} = Object.fromEntries(formData.entries())
+        const { email, password} = Object.fromEntries(formData.entries())
       
 
 
@@ -57,36 +57,28 @@ const SingUp = () => {
         // }
 
 
-  createUser(email, password)
+createUser(email, password)
             .then(result => {
-                const user = result.user
-        
-                updateUser({ displayName: name, photoURL: photoUrl })
+                const user = result.user;
+                // setUser(user);
+                // Swal.fire({
+                //     title: "Registration Successful",
+                //     icon: "success",
+                // });
+                  updateUser({ displayName: name, photoURL: photoUrl })
                     .then(() => {
                         setUser({ ...user, displayName: name, photoURL: photoUrl })
-                         Swal.fire({
-                                title: "Account Created Successfully",
-                                icon: "success",
-                                draggable: true
-                            });
                     })
-                    .catch(error => {
-                        console.log(error)
-                        setUser(user)
-                    })
-              
-                navigate("/")
-
+                navigate("/");
             })
-            .catch(() => {
-                // console.log(error)
+            .catch(error => {
+                setError(error.message);
                 Swal.fire({
-                    icon: "Register Failed! Try again",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-
+                    icon: "error",
+                    title: "Registration Failed",
+                    text: error.message,
                 });
-            })
+            });
 
     }
     return (

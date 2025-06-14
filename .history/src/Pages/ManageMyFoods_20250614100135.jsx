@@ -1,21 +1,18 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
-import { AuthContext } from "../Provider/AuthProvider";
 
 const ManageMyFoods = () => {
   const initialData = useLoaderData();
-  const {user} = use(AuthContext)
-  // const [manageFood, setManageFood] = useState(initialData)
-  const [myFood, setMyFood] = useState([])
-  console.log(user);
+  const [manageFood, setManageFood] = useState(initialData)
+//   console.log(data);
 
 
-  useEffect(() => {
-        fetch(`http://localhost:3000/manageFoods?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => setMyFood(data))
-    }, [user])
+  // useEffect(() => {
+  //       fetch(`https://gardening-server-theta.vercel.app/myTips?email=${user.email}`)
+  //           .then(res => res.json())
+  //           .then(data => setMyTip(data))
+  //   }, [user])
 
 
   const handleDelete = (id) => {
@@ -43,8 +40,8 @@ const ManageMyFoods = () => {
                                 icon: "success"
                             });
                             // delete from ui
-                            const remainingFood = myFood.filter(rem => rem._id !== id)
-                            setMyFood(remainingFood)
+                            const remainingFood = manageFood.filter(rem => rem._id !== id)
+                            setManageFood(remainingFood)
                         }
                     })
 
@@ -65,7 +62,7 @@ const ManageMyFoods = () => {
           </tr>
         </thead>
         <tbody>
-          {myFood.map((food) => (
+          {manageFood.map((food) => (
             <tr key={food._id}>
               <td>
                 <img

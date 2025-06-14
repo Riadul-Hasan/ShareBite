@@ -64,11 +64,6 @@ const SingUp = () => {
                 updateUser({ displayName: name, photoURL: photoUrl })
                     .then(() => {
                         setUser({ ...user, displayName: name, photoURL: photoUrl })
-                         Swal.fire({
-                                title: "Account Created Successfully",
-                                icon: "success",
-                                draggable: true
-                            });
                     })
                     .catch(error => {
                         console.log(error)

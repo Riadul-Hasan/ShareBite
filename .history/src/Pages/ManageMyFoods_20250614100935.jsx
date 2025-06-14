@@ -6,9 +6,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 const ManageMyFoods = () => {
   const initialData = useLoaderData();
   const {user} = use(AuthContext)
-  // const [manageFood, setManageFood] = useState(initialData)
+  const [manageFood, setManageFood] = useState(initialData)
   const [myFood, setMyFood] = useState([])
-  console.log(user);
+//   console.log(data);
 
 
   useEffect(() => {
@@ -43,8 +43,8 @@ const ManageMyFoods = () => {
                                 icon: "success"
                             });
                             // delete from ui
-                            const remainingFood = myFood.filter(rem => rem._id !== id)
-                            setMyFood(remainingFood)
+                            const remainingFood = manageFood.filter(rem => rem._id !== id)
+                            setManageFood(remainingFood)
                         }
                     })
 

@@ -7,7 +7,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const SingUp = () => {
-     const { createUser,  setUser,updateUser, googlePopUp } = use(AuthContext)
+     const { createUser,  setUser, googlePopUp } = use(AuthContext)
     const navigate = useNavigate()
     const [error, setError] = useState("")
 
@@ -32,8 +32,8 @@ const SingUp = () => {
 
         const form = e.target;
         const formData = new FormData(form)
-        const { email, password, name, photoUrl} = Object.fromEntries(formData.entries())
-      
+        const { email, password} = Object.fromEntries(formData.entries())
+        // console.log(email, password, photoUrl, userProfile)
 
 
 
@@ -57,36 +57,24 @@ const SingUp = () => {
         // }
 
 
-  createUser(email, password)
+createUser(email, password)
             .then(result => {
-                const user = result.user
-        
-                updateUser({ displayName: name, photoURL: photoUrl })
-                    .then(() => {
-                        setUser({ ...user, displayName: name, photoURL: photoUrl })
-                         Swal.fire({
-                                title: "Account Created Successfully",
-                                icon: "success",
-                                draggable: true
-                            });
-                    })
-                    .catch(error => {
-                        console.log(error)
-                        setUser(user)
-                    })
-              
-                navigate("/")
-
-            })
-            .catch(() => {
-                // console.log(error)
+                const user = result.user;
+                setUser(user);
                 Swal.fire({
-                    icon: "Register Failed! Try again",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-
+                    title: "Registration Successful",
+                    icon: "success",
                 });
+                navigate("/");
             })
+            .catch(error => {
+                setError(error.message);
+                Swal.fire({
+                    icon: "error",
+                    title: "Registration Failed",
+                    text: error.message,
+                });
+            });
 
     }
     return (
