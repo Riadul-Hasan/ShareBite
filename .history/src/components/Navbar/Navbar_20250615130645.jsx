@@ -362,9 +362,7 @@ const Navbar = () => {
 
       {/* CTA Button */}
       <div className="navbar-end">
-        {
-            user && (
-                <NavLink
+        <NavLink
           to="/signUp"
           className={({ isActive }) =>
             `px-4 py-2 rounded-lg font-medium transition-all ${
@@ -376,8 +374,6 @@ const Navbar = () => {
         >
           <button onClick={handleLogout}>Logout</button>
         </NavLink>
-            )
-        }
       </div>
     </div>
   );

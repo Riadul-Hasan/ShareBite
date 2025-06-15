@@ -48,7 +48,7 @@ const Login = () => {
                 Swal.fire({
   icon: "error",
   title: "Oops...",
-  text: "Wrong email or password",
+  text: "Something went wrong!",
   footer: '<a href="#">Why do I have this issue?</a>'
 });
             })

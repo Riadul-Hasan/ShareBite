@@ -21,7 +21,7 @@ const Additional2 = () => {
           </p>
           <div className="flex justify-around w-auto lg:w-3/5 mx-auto gap-1">
             <button className="btn rounded-full px-6 bg-gradient-to-r from-amber-500 to-amber-600 border-none hover:from-amber-600 hover:to-amber-700 text-white ">
-              Explore
+              Learn More
             </button>
             <button className="btn bg-transparent text-white">
               Learn More

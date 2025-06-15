@@ -41,7 +41,7 @@ const AvailableFoodCard = ({food}) => {
 
     {notes && (
       <p className="text-sm text-gray-700 ">
-        <div className='flex gap-2 items-center'>
+        <div className='flex'>
           <span className="font-medium"><TbFileDescription /></span> {notes}
         </div>
       </p>

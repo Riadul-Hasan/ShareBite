@@ -13,14 +13,9 @@ const Home = () => {
     return (
         <div>
             <HeroSection></HeroSection>
-            <motion.div 
-             initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 4 }}
-
-            className='container mx-auto py-20'>
+            <div className='container mx-auto py-20'>
                 <FeaturedFoods foodPromise={foodPromise}></FeaturedFoods>
-            </motion.div>
+            </div>
 
             <div>
                 <Additional2></Additional2>

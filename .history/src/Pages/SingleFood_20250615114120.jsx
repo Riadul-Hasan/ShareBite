@@ -96,7 +96,7 @@ const SingleFood = () => {
 
             <div className='text-center py-6'>
                 <button 
-                   className="btn rounded-full px-6 bg-gradient-to-r from-amber-500 to-amber-600 border-none hover:from-amber-600 hover:to-amber-700 text-white "
+                    className="btn btn-primary px-8 py-3 text-lg"
                     onClick={() => document.getElementById('request_modal').showModal()}
                     disabled={foodStatus !== 'available'}
                 >
@@ -250,7 +250,7 @@ const SingleFood = () => {
                                 >
                                     Cancel
                                 </button>
-                                <button type="submit" className="btn rounded-full px-6 bg-gradient-to-r from-amber-500 to-amber-600 border-none hover:from-amber-600 hover:to-amber-700 text-white ">
+                                <button type="submit" className="btn btn-primary px-6">
                                     Submit Request
                                 </button>
                             </div>

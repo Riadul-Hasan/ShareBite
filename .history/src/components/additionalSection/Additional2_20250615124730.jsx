@@ -12,6 +12,7 @@ const Additional2 = () => {
       <div className="hero-overlay"></div>
       <div className="hero-content text-white lg:w-2/5 lg:p-10  text-center backdrop-blur-sm bg-white/10">
         <div className="">
+          {/* <h1 className="mb-5 text-5xl font-bold">Plant Trees, Save <span className='text-green-400'>Lives</span></h1> */}
           <h1 className="mb-5 text-3xl font-bold">
             Share Meals, Spread <span className="text-orange-400">Hope</span>
           </h1>
@@ -21,7 +22,7 @@ const Additional2 = () => {
           </p>
           <div className="flex justify-around w-auto lg:w-3/5 mx-auto gap-1">
             <button className="btn rounded-full px-6 bg-gradient-to-r from-amber-500 to-amber-600 border-none hover:from-amber-600 hover:to-amber-700 text-white ">
-              Explore
+              Learn More
             </button>
             <button className="btn bg-transparent text-white">
               Learn More

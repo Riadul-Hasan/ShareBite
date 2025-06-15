@@ -56,7 +56,7 @@ const HeroSection = () => {
                                 <p className="text-lg md:text-xl mb-8 max-w-xl">
                                     {banner.description}
                                 </p>
-                                <button className="btn bg-transparent text-white">
+                                <button className="bg-green-600 hover:bg-white hover:text-green-800 text-white px-8 py-3 rounded-lg text-lg font-medium">
                                     {banner.buttonText}
                                 </button>
                             </div>

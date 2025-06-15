@@ -45,12 +45,6 @@ const Login = () => {
             .catch(error => {
                 console.log(error)
                 setError("Wrong email password")
-                Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Wrong email or password",
-  footer: '<a href="#">Why do I have this issue?</a>'
-});
             })
     }
     return (

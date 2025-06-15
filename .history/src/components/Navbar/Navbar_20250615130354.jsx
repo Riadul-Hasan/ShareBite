@@ -212,8 +212,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `px-4 py-2 rounded-lg font-medium transition-all ${
                 isActive
-                  ? "bg-white text-amber-500"
-                  : "hover:bg-amber-200 hover:bg-opacity-30"
+                  ? "bg-white text-green-600"
+                  : "hover:bg-green-600 hover:bg-opacity-30"
               }`
             }
           >
@@ -224,8 +224,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `px-4 py-2 rounded-lg font-medium transition-all ${
                 isActive
-                  ? "bg-white text-amber-500"
-                  : "hover:bg-amber-200 hover:bg-opacity-30"
+                  ? "bg-white text-green-600"
+                  : "hover:bg-green-600 hover:bg-opacity-30"
               }`
             }
           >
@@ -237,8 +237,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `px-4 py-2 rounded-lg font-medium transition-all ${
                 isActive
-                  ? "bg-white text-amber-500"
-                  : "hover:bg-amber-200 hover:bg-opacity-30"
+                  ? "bg-white text-green-600"
+                  : "hover:bg-green-600 hover:bg-opacity-30"
               }`
             }
           >
@@ -250,8 +250,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `px-4 py-2 rounded-lg font-medium transition-all ${
                 isActive
-                  ? "bg-white text-amber-500"
-                  : "hover:bg-amber-200 hover:bg-opacity-30"
+                  ? "bg-white text-green-600"
+                  : "hover:bg-green-600 hover:bg-opacity-30"
               }`
             }
           >
@@ -262,8 +262,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `px-4 py-2 rounded-lg font-medium transition-all ${
                 isActive
-                  ? "bg-white text-amber-500"
-                  : "hover:bg-amber-200 hover:bg-opacity-30"
+                  ? "bg-white text-green-600"
+                  : "hover:bg-green-600 hover:bg-opacity-30"
               }`
             }
           >
@@ -313,7 +313,7 @@ const Navbar = () => {
                     `px-4 py-2 rounded-lg font-medium transition-all ${
                       isActive
                         ? "bg-white text-green-600"
-                        : "hover:bg-green-600 hover:bg-opacity-30"
+                        : "hover:bg-red-50 hover:bg-opacity-30"
                     }`
                   }
                 >
@@ -362,9 +362,7 @@ const Navbar = () => {
 
       {/* CTA Button */}
       <div className="navbar-end">
-        {
-            user && (
-                <NavLink
+        <NavLink
           to="/signUp"
           className={({ isActive }) =>
             `px-4 py-2 rounded-lg font-medium transition-all ${
@@ -376,8 +374,6 @@ const Navbar = () => {
         >
           <button onClick={handleLogout}>Logout</button>
         </NavLink>
-            )
-        }
       </div>
     </div>
   );

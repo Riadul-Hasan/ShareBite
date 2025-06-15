@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { FaLocationDot } from "react-icons/fa6";
-import { FcExpired } from 'react-icons/fc';
-import { TbFileDescription } from "react-icons/tb";
 
 const AvailableFoodCard = ({food}) => {
     const {name, foodUrl, quantity, location, notes, dateTime, _id} = food;
@@ -35,15 +33,13 @@ const AvailableFoodCard = ({food}) => {
     </div>
     
     <div className="flex items-center text-sm text-gray-600">
-      <span className="font-medium mr-2"><FcExpired /></span>
+      <span className="font-medium mr-2">⏱️</span>
       <span>Expires: {new Date(dateTime).toLocaleDateString()}</span>
     </div>
 
     {notes && (
-      <p className="text-sm text-gray-700 ">
-        <div className='flex gap-2 items-center'>
-          <span className="font-medium"><TbFileDescription /></span> {notes}
-        </div>
+      <p className="text-sm text-gray-700 line-clamp-2">
+        <span className="font-medium">🍴</span> {notes}
       </p>
     )}
 

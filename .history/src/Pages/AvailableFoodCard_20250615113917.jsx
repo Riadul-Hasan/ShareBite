@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { FaLocationDot } from "react-icons/fa6";
-import { FcExpired } from 'react-icons/fc';
-import { TbFileDescription } from "react-icons/tb";
 
 const AvailableFoodCard = ({food}) => {
     const {name, foodUrl, quantity, location, notes, dateTime, _id} = food;
@@ -30,26 +27,24 @@ const AvailableFoodCard = ({food}) => {
   <div className="p-5 space-y-3">
     {/* Food Details */}
     <div className="flex items-center text-sm text-gray-600">
-      <span className="font-medium mr-2"><FaLocationDot /></span>
+      <span className="font-medium mr-2">📍</span>
       <span>{location}</span>
     </div>
     
     <div className="flex items-center text-sm text-gray-600">
-      <span className="font-medium mr-2"><FcExpired /></span>
+      <span className="font-medium mr-2">⏱️</span>
       <span>Expires: {new Date(dateTime).toLocaleDateString()}</span>
     </div>
 
     {notes && (
-      <p className="text-sm text-gray-700 ">
-        <div className='flex gap-2 items-center'>
-          <span className="font-medium"><TbFileDescription /></span> {notes}
-        </div>
+      <p className="text-sm text-gray-700 line-clamp-2">
+        <span className="font-medium">🍴</span> {notes}
       </p>
     )}
 
     <div className="card-actions justify-end pt-3">
       <Link to={`/singleFood/${_id}`}>
-      <button className="btn rounded-full px-6 bg-gradient-to-r from-amber-500 to-amber-600 border-none hover:from-amber-600 hover:to-amber-700 text-white ">
+      <button className="btn rounded-full px-6 bg-gradient-to-r from-amber-500 to-amber-600 border-none hover:from-amber-600 hover:to-amber-700 text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 active:translate-y-0 active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-50">
   View Details
 </button>
       </Link>
