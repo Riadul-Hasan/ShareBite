@@ -5,13 +5,43 @@ import { use } from 'react';
 const MyFoodRequest = () => {
   const { user } = use(AuthContext);
   const queryClient = useQueryClient();
+  // console.log(user)
+  // Fetch food requests
+  // const { data: myRequest, isLoading, error } = useQuery({
+  //   queryKey: ['foodRequests', user?.email],
+  //   queryFn: async () => {
+      
+  //     const res = await fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}` , {
+  //       headers: {
+  //         Authorization: `Bearer ${user.accessToken}`
+  //       }
+  //     });
+  //     if (!res.ok) throw new Error('Failed to fetch');
+  //     return res.json();
+  //   },
+  //   enabled: !!user?.email
+  // });
+
+  // // Cancel request mutation
+  // const { mutate: cancelRequest } = useMutation({
+  //   mutationFn: async (requestId) => {
+  //     const res = await fetch(`http://localhost:3000/myFoodRequest/${requestId}`, {
+  //       method: 'DELETE'
+  //     });
+  //     if (!res.ok) throw new Error('Failed to cancel');
+  //     return res.json();
+  //   },
+  //   onSuccess: () => {
+  //     queryClient.invalidateQueries(['foodRequests']);
+  //   }
+  // });
 
 
   const { data: myRequest, isLoading, error } = useQuery({
   queryKey: ['foodRequests', user?.email],
   queryFn: async () => {
     try {
-      const token = await user.getIdToken(); 
+      const token = await user.getIdToken(); // ✅ Get proper Firebase token
       const res = await fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -36,7 +66,7 @@ const MyFoodRequest = () => {
 // Fixed Mutation
 const { mutate: cancelRequest } = useMutation({
   mutationFn: async (requestId) => {
-    const token = await user.getIdToken(); 
+    const token = await user.getIdToken(); // Add token here too
     const res = await fetch(`http://localhost:3000/myFoodRequest/${requestId}`, {
       method: 'DELETE',
       headers: {

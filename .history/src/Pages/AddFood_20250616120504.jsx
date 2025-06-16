@@ -13,7 +13,7 @@ const AddFood = () => {
   const formData = new FormData(form);
   const newData = Object.fromEntries(formData.entries());
 
-  // firebase token sent to server
+  // Get Firebase token and send with request
   user.getIdToken().then(token => {
     fetch("http://localhost:3000/addFood", {
       method: "POST",

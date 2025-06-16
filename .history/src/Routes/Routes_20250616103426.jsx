@@ -33,6 +33,7 @@ export const router = createBrowserRouter([
       {
         path: "/manageFoods",
         hydrateFallbackElement: <Loading></Loading>,
+        loader: ()=> fetch("http://localhost:3000/addFood"),
         element: <PrivateRoute><ManageMyFoods></ManageMyFoods></PrivateRoute>,
       },
       {
@@ -43,7 +44,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myFoodRequest",
-        element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
+        // loader: ()=> fetch('http://localhost:3000/myRequest'),
+        element: <MyFoodRequest></MyFoodRequest>,
       },
       {
         path: "/login",

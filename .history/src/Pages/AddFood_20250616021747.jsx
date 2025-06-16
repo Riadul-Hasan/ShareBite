@@ -7,35 +7,42 @@ const AddFood = () => {
     const {user} = use(AuthContext)
     const navigate = useNavigate()
 
-    const handleAddFood = (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
-  const newData = Object.fromEntries(formData.entries());
 
-  // firebase token sent to server
-  user.getIdToken().then(token => {
-    fetch("http://localhost:3000/addFood", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`  
-      },
-      body: JSON.stringify(newData)
-    })
-    .then(result => result.json())
-    .then(data => {
-      if (data.insertedId) {
-        Swal.fire({
-          title: "Food Successfully added",
-          icon: "success",
-          draggable: true
-        });
-        navigate("/availableFoods");
-      }
-    });
-  });
-};
+
+    const handleAddFood = (e)=>{
+      e.preventDefault()
+      const form = e.target;
+        const formData = new FormData(form)
+        const newData = Object.fromEntries(formData.entries())
+        // console.log(newData)
+
+        const dataForDB = {
+            ...newData,
+            foodStatus: "available"
+            
+        }
+
+        // api req
+        fetch("http://localhost:3000/addFood", {
+          method: "POST", 
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(dataForDB)
+        })
+       .then(result => result.json())
+       .then(data =>{
+        // console.log(data)
+         if (data.insertedId) {
+                    Swal.fire({
+                        title: "Food Successfully added",
+                        icon: "success",
+                        draggable: true
+                    });
+                    navigate("/availableFoods")
+                }
+       })
+    }
     return (
   <div className='bg-gradient-to-br from-red-50 via-amber-50 to-orange-50 py-16'>
          <div className="max-w-2xl mx-auto   p-6 bg-white rounded-xl shadow-md border border-gray-100">
@@ -70,7 +77,6 @@ const AddFood = () => {
       <input
         type="text"
         name='name'
-        required
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
         placeholder="e.g., Fresh Apple Pie"
       />
@@ -84,7 +90,6 @@ const AddFood = () => {
       <input
         type="url"
         name='foodUrl'
-        required
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
         placeholder="https://example.com/food-image.jpg"
       />
@@ -177,7 +182,7 @@ const AddFood = () => {
       </label>
       <input
         type="text"
-        name='foodStatus'
+        name='email'
         value={"available"}
         readOnly
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"

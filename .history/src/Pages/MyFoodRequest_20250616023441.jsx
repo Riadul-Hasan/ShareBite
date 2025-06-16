@@ -5,59 +5,31 @@ import { use } from 'react';
 const MyFoodRequest = () => {
   const { user } = use(AuthContext);
   const queryClient = useQueryClient();
-
-
+  console.log(user)
+  // Fetch food requests
   const { data: myRequest, isLoading, error } = useQuery({
-  queryKey: ['foodRequests', user?.email],
-  queryFn: async () => {
-    try {
-      const token = await user.getIdToken(); 
-      const res = await fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || 'Failed to fetch requests');
-      }
-      
+    queryKey: ['foodRequests', user?.email],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}`);
+      if (!res.ok) throw new Error('Failed to fetch');
       return res.json();
-    } catch (err) {
-      console.error('Fetch error:', err);
-      throw new Error(err.message || 'Network error');
-    }
-  },
-  enabled: !!user?.email
-});
+    },
+    enabled: !!user?.email
+  });
 
-// Fixed Mutation
-const { mutate: cancelRequest } = useMutation({
-  mutationFn: async (requestId) => {
-    const token = await user.getIdToken(); 
-    const res = await fetch(`http://localhost:3000/myFoodRequest/${requestId}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
-    
-    if (!res.ok) {
-      const errorData = await res.json();
-      throw new Error(errorData.message || 'Failed to cancel request');
+  // Cancel request mutation
+  const { mutate: cancelRequest } = useMutation({
+    mutationFn: async (requestId) => {
+      const res = await fetch(`http://localhost:3000/myFoodRequest/${requestId}`, {
+        method: 'DELETE'
+      });
+      if (!res.ok) throw new Error('Failed to cancel');
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(['foodRequests']);
     }
-    
-    return res.json();
-  },
-  onSuccess: () => {
-    queryClient.invalidateQueries(['foodRequests']);
-  },
-  onError: (error) => {
-    console.error('Cancel error:', error);
-  }
-});
+  });
 
   if (isLoading) return <span className="loading loading-bars loading-xl"></span>
   if (error) return <div className="text-center py-8 text-red-500">Error: {error.message}</div>;
@@ -68,7 +40,7 @@ const { mutate: cancelRequest } = useMutation({
         <h2 className="text-3xl font-bold text-center mb-8">My Food Requests</h2>
         
 
-    {!myRequest || myRequest.length === 0 ? (
+    {myRequest.length < 1 ? (
                 <div className="text-center text-red-500 text-2xl p-10 bg-base-300 font-semibold py-20">
                     <p>No request added yet.</p>
                 </div>

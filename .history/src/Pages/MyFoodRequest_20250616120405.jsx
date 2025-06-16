@@ -36,7 +36,7 @@ const MyFoodRequest = () => {
 // Fixed Mutation
 const { mutate: cancelRequest } = useMutation({
   mutationFn: async (requestId) => {
-    const token = await user.getIdToken(); 
+    const token = await user.getIdToken(); // Add token here too
     const res = await fetch(`http://localhost:3000/myFoodRequest/${requestId}`, {
       method: 'DELETE',
       headers: {

@@ -14,7 +14,7 @@ const UpdateManageFood = () => {
     const formData = new FormData(form);
     const updatedTip = Object.fromEntries(formData.entries());
 
-    // send token
+    // Get and send token
     user.getIdToken().then((token) => {
       fetch(`http://localhost:3000/addFood/${singleFood._id}`, {
         method: "PUT",

@@ -9,7 +9,7 @@ const ManageMyFoods = () => {
   const {user} = use(AuthContext)
   // const [manageFood, setManageFood] = useState(initialData)
   const [myFood, setMyFood] = useState([])
-
+  console.log(user);
 
   useEffect(() => {
     if (user?.email) {
