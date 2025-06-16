@@ -93,9 +93,9 @@ const SingUp = () => {
           <div className=" min-h-[calc(100vh-320px)] bg-gradient-to-br from-amber-50 via-orange-50 to-rose-100  flex flex-col items-center justify-center px-4">
 
             <div className="card  bg-gradient-to-br from-green-50 to-cyan-100 rounded-2xl  w-full max-w-sm shrink-0  mx-auto mt-20 mb-20 ">
-                <div className='p-4 rounded-t-2xl bg-gradient-to-r from-amber-500 to-amber-400 '>
-                    <h2 className='text-2xl font-bold text-center text-white'>Create Your Account</h2>
-                    <p className='text-sm text-center text-white'>Join Us Today</p>
+                <div className='p-4 rounded-t-2xl bg-gradient-to-r from-amber-500 to-amber-600'>
+                    <h2 className='text-2xl font-bold text-center text-base-content'>Create Your Account</h2>
+                    <p className='text-sm text-center text-base-content'>Join Us Today</p>
                 </div>
                 <form onSubmit={handleRegister} className="card-body">
                     <fieldset className="fieldset ">

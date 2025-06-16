@@ -98,10 +98,10 @@ const AvailableFoods = () => {
       </p>
     </div>
 
-    <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 w-full lg:w-70 mx-auto xs:w-auto">
+    <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 w-full lg:w-70 xs:w-auto">
       <button
         onClick={toggleLayout}
-        className="btn bg-gradient-to-r from-amber-400 to-amber-600 hidden text-white rounded-xl border-none  lg:flex items-center justify-center gap-2 text-sm md:text-base px-3 md:px-4 py-2"
+        className="btn bg-gradient-to-r from-amber-400 to-amber-600 text-white rounded-xl border-none flex items-center justify-center gap-2 text-sm md:text-base px-3 md:px-4 py-2"
       >
         {layoutColumns === 3 ? (
           <>

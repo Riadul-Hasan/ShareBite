@@ -70,7 +70,7 @@ const handleDelete = (id) => {
                     <p>No Foods Found</p>
                 </div>
      ): (<div className="overflow-x-auto w-3/4 mx-auto   bg-white">
-      <table className="table">
+      <table className="table rounded-xl">
         <thead>
           <tr className="bg-base-300">
             <th>Food Image </th>

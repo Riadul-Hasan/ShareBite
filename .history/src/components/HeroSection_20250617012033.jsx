@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Food1 from "../assets/food1.jpg"
 import Food2 from "../assets/food2.jpg"
-
+import Food3 from "../assets/food3.jpg"
 
 
 
@@ -12,7 +12,7 @@ const HeroSection = () => {
     const banners = [
         {
             id: 1,
-            image: Food2,
+            image: Food3,
             title: 'Share & Discover Fresh Meals',
             description: 'Join our network to share extra food with neighbors and access free meals in your area',
             buttonText: 'Explore'

@@ -54,7 +54,7 @@ const Login = () => {
             })
     }
     return (
-        <div className=' py-10 min-h-[calc(100vh-200px)] bg-gradient-to-br from-amber-100 via-orange-50 to-rose-50 flex flex-col items-center justify-center px-4'>
+        <div className=' py-10 min-h-[calc(100vh-200)] bg-gradient-to-br from-amber-100 via-orange-50 to-rose-50 flex flex-col items-center justify-center px-4'>
 
 
 

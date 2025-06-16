@@ -66,7 +66,7 @@ const handleDelete = (id) => {
   return (
     <div className="bg-gradient-to-b from-orange-50 to-rose-100 min-h-[calc(100vh-250px)]  py-16">
      {myFood.length < 1 ? (
-          <div className="text-center max-w-5xl mx-auto rounded-xl text-red-500 text-2xl p-10 bg-white font-semibold py-20">
+          <div className="text-center max-w-5xl mx-auto text-red-500 text-2xl p-10 bg-white font-semibold py-20">
                     <p>No Foods Found</p>
                 </div>
      ): (<div className="overflow-x-auto w-3/4 mx-auto   bg-white">

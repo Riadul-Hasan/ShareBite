@@ -47,7 +47,7 @@ const AvailableFoods = () => {
 
   return (
     <div className="mb-10">
-      {/* <section className="mb-10">
+      <section className="mb-10">
         <div className="flex flex-col md:flex-row justify-between items-center bg-gradient-to-r from-amber-50 to-orange-50 p-4 md:p-16 lg:p-18 gap-4">
           <div>
             <h2 className="text-3xl font-bold flex items-center gap-2">
@@ -83,46 +83,7 @@ const AvailableFoods = () => {
             </button>
           </div>
         </div>
-      </section> */}
-
-      <section className="mb-10">
-  <div className="flex flex-col sm:flex-row justify-between items-center bg-gradient-to-r from-amber-50 to-orange-50 p-4 sm:p-8 md:p-16 lg:p-18 gap-4">
-    <div className="text-center sm:text-left">
-      <h2 className="text-2xl md:text-3xl font-bold flex items-center justify-center sm:justify-start gap-2">
-        <MdOutlineEventAvailable className="text-xl md:text-2xl" />
-        Available Foods
-      </h2>
-      <p className="mt-2 md:mt-4 text-sm md:text-base text-center sm:text-left text-amber-700/80 max-w-2xl">
-        Discover fresh meals shared by your community. Sort to find what
-        needs to be claimed soonest.
-      </p>
-    </div>
-
-    <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 w-full lg:w-70 mx-auto xs:w-auto">
-      <button
-        onClick={toggleLayout}
-        className="btn bg-gradient-to-r from-amber-400 to-amber-600 hidden text-white rounded-xl border-none  lg:flex items-center justify-center gap-2 text-sm md:text-base px-3 md:px-4 py-2"
-      >
-        {layoutColumns === 3 ? (
-          <>
-            <MdViewAgenda className="text-lg" /> 2 Columns
-          </>
-        ) : (
-          <>
-            <MdGridOn className="text-lg" /> 3 Columns
-          </>
-        )}
-      </button>
-      <button
-        onClick={toggleSortOrder}
-        className="btn bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl border-none text-sm md:text-base px-3 md:px-4 py-2"
-      >
-        Sort by Expiry:{" "}
-        {sortOrder === "asc" ? "Oldest First" : "Newest First"}
-      </button>
-    </div>
-  </div>
-</section>
+      </section>
 
       
       
