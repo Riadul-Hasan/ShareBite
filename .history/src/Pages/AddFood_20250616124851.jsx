@@ -15,7 +15,7 @@ const AddFood = () => {
 
   // firebase token sent to server
   user.getIdToken().then(token => {
-    fetch("http://localhost:3000/addFood", {
+    fetch("https://food-sharing-server-khaki.vercel.app/addFood", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

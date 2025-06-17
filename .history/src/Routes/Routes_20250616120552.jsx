@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: ()=> fetch("http://localhost:3000/featureFoods"),
+        loader: ()=> fetch("https://food-sharing-server-khaki.vercel.app/featureFoods"),
         hydrateFallbackElement: <Loading></Loading>,
         Component: Home,
         
@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
       {
         path: "/availableFoods",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ()=> fetch("http://localhost:3000/addFood"),
+        loader: ()=> fetch("https://food-sharing-server-khaki.vercel.app/addFood"),
         Component: AvailableFoods,
       },
       {
@@ -56,13 +56,13 @@ export const router = createBrowserRouter([
       {
         path: "/singleFood/:id",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
+        loader: ({params})=> fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${params.id}`),
         element: <SingleFood></SingleFood>
       },
       {
         path: "/updateFood/:id",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({params})=> fetch(`http://localhost:3000/addFood/${params.id}`),
+        loader: ({params})=> fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${params.id}`),
         element: <PrivateRoute><UpdateManageFood></UpdateManageFood></PrivateRoute>
       }
     ],

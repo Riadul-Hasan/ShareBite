@@ -257,7 +257,7 @@ const SingleFood = () => {
         document.getElementById('request_modal').close();
 
           // api req
-                fetch("http://localhost:3000/myRequest", {
+                fetch("https://food-sharing-server-khaki.vercel.app/myRequest", {
                   method: "POST", 
                   headers: {
                     "content-type": "application/json"

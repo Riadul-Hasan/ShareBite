@@ -18,7 +18,7 @@ const UpdateManageFood = () => {
         // console.log(updatedTip)
 
         // send update tip to database
-        fetch(`http://localhost:3000/addFood/${singleFood.id}`, {
+        fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${singleFood.id}`, {
             method: "PUT",
             headers: {
                 'content-type': "application/json"

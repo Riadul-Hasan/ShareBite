@@ -13,7 +13,7 @@ const ManageMyFoods = () => {
 
 
   // useEffect(() => {
-  //       fetch(`http://localhost:3000/manageFoods?email=${user.email}`)
+  //       fetch(`https://food-sharing-server-khaki.vercel.app/manageFoods?email=${user.email}`)
   //           .then(res => res.json())
   //           .then(data => setMyFood(data))
   //   }, [user])
@@ -31,7 +31,7 @@ const ManageMyFoods = () => {
   //           confirmButtonText: "Yes, delete it!"
   //       }).then((result) => {
   //           if (result.isConfirmed) {
-  //               fetch(`http://localhost:3000/addFood/${id}`, {
+  //               fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${id}`, {
   //                   method: "DELETE",
 
   //               })
@@ -56,7 +56,7 @@ const ManageMyFoods = () => {
   useEffect(() => {
     if (user?.email) {
         user.getIdToken().then(token => {
-            fetch(`http://localhost:3000/manageFoods?email=${user.email}`, {
+            fetch(`https://food-sharing-server-khaki.vercel.app/manageFoods?email=${user.email}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -80,7 +80,7 @@ const handleDelete = (id) => {
     }).then((result) => {
         if (result.isConfirmed) {
             user.getIdToken().then(token => {
-                fetch(`http://localhost:3000/addFood/${id}`, {
+                fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${id}`, {
                     method: "DELETE",
                     headers: {
                         'Authorization': `Bearer ${token}`

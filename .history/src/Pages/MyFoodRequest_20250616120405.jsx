@@ -12,7 +12,7 @@ const MyFoodRequest = () => {
   queryFn: async () => {
     try {
       const token = await user.getIdToken(); 
-      const res = await fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}`, {
+      const res = await fetch(`https://food-sharing-server-khaki.vercel.app/myFoodRequest?requesterEmail=${user.email}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ const MyFoodRequest = () => {
 const { mutate: cancelRequest } = useMutation({
   mutationFn: async (requestId) => {
     const token = await user.getIdToken(); // Add token here too
-    const res = await fetch(`http://localhost:3000/myFoodRequest/${requestId}`, {
+    const res = await fetch(`https://food-sharing-server-khaki.vercel.app/myFoodRequest/${requestId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`

@@ -20,7 +20,7 @@ const AddFood = () => {
         }
 
         // api req
-        fetch("http://localhost:3000/addFood")
+        fetch("https://food-sharing-server-khaki.vercel.app/addFood")
         .then(result =>{
           console.log(result)
         })

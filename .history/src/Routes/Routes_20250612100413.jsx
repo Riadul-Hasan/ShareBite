@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: ()=> fetch("http://localhost:3000/featureFoods"),
+        loader: ()=> fetch("https://food-sharing-server-khaki.vercel.app/featureFoods"),
         hydrateFallbackElement: <p>Loading...</p>,
         Component: Home,
         

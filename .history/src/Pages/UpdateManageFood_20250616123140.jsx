@@ -16,7 +16,7 @@ const UpdateManageFood = () => {
 
     // send token
     user.getIdToken().then((token) => {
-      fetch(`http://localhost:3000/addFood/${singleFood._id}`, {
+      fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${singleFood._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

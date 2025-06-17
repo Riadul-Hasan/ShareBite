@@ -3,7 +3,7 @@ import HeroSection from '../components/HeroSection';
 import FeaturedFoods from '../components/featureFood/FeaturedFoods';
 
 const Home = () => {
-    // const featurePromise = fetch("http://localhost:3000/featureFoods").then(res => res.json())
+    // const featurePromise = fetch("https://food-sharing-server-khaki.vercel.app/featureFoods").then(res => res.json())
     return (
         <div>
             <HeroSection></HeroSection>

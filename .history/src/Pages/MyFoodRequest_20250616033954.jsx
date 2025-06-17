@@ -12,7 +12,7 @@ const MyFoodRequest = () => {
     queryFn: async () => {
 
       const token = await user.getIdToken(); 
-      const res = await fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}` , {
+      const res = await fetch(`https://food-sharing-server-khaki.vercel.app/myFoodRequest?requesterEmail=${user.email}` , {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -26,7 +26,7 @@ const MyFoodRequest = () => {
   // Cancel request mutation
   const { mutate: cancelRequest } = useMutation({
     mutationFn: async (requestId) => {
-      const res = await fetch(`http://localhost:3000/myFoodRequest/${requestId}`, {
+      const res = await fetch(`https://food-sharing-server-khaki.vercel.app/myFoodRequest/${requestId}`, {
         method: 'DELETE'
       });
       if (!res.ok) throw new Error('Failed to cancel');

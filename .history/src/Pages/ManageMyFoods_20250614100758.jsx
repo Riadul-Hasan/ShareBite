@@ -11,7 +11,7 @@ const ManageMyFoods = () => {
 
 
   useEffect(() => {
-        fetch(`http://localhost:3000/manageFoods?email=${user.email}`)
+        fetch(`https://food-sharing-server-khaki.vercel.app/manageFoods?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyTip(data))
     }, [user])
@@ -29,7 +29,7 @@ const ManageMyFoods = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/addFood/${id}`, {
+                fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${id}`, {
                     method: "DELETE",
 
                 })

@@ -10,7 +10,7 @@ const MyFoodRequest = () => {
   const { data: myRequest, isLoading, error, refetch } = useQuery({
     queryKey: ['foodRequests', user?.email],
     queryFn: async () => {
-      const response = await fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}`);
+      const response = await fetch(`https://food-sharing-server-khaki.vercel.app/myFoodRequest?requesterEmail=${user.email}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -22,7 +22,7 @@ const MyFoodRequest = () => {
   // Mutation for canceling a food request
   const cancelRequestMutation = useMutation({
     mutationFn: async (requestId) => {
-      const response = await fetch(`http://localhost:3000/myFoodRequest/${requestId}`, {
+      const response = await fetch(`https://food-sharing-server-khaki.vercel.app/myFoodRequest/${requestId}`, {
         method: 'DELETE'
       });
       if (!response.ok) {

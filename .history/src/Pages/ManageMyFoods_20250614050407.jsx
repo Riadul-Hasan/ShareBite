@@ -20,7 +20,7 @@ const ManageMyFoods = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/addFood/${id}`, {
+                fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${id}`, {
                     method: "DELETE",
 
                 })

@@ -6,7 +6,7 @@ const Home = () => {
     const [foods, setFoods] = useState([])
     const [loading, setLoading] = useState(true)
    useEffect(() => {
-    fetch("http://localhost:3000/featureFoods")
+    fetch("https://food-sharing-server-khaki.vercel.app/featureFoods")
       .then(res => res.json())
       .then(data => {
         setFoods(data);

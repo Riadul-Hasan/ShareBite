@@ -9,7 +9,7 @@ const MyFoodRequest = () => {
     const [myRequest, setMyRequest] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}`)
+        fetch(`https://food-sharing-server-khaki.vercel.app/myFoodRequest?requesterEmail=${user.email}`)
             .then(res => res.json())
             .then(data => setMyRequest(data))
     }, [user])

@@ -9,7 +9,7 @@ const MyFoodRequest = () => {
   const { data: myRequest, isLoading, error } = useQuery({
     queryKey: ['myFoodRequests', user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:3000/myFoodRequest?requesterEmail=${user.email}`);
+      const res = await fetch(`https://food-sharing-server-khaki.vercel.app/myFoodRequest?requesterEmail=${user.email}`);
       return res.json();
     },
     enabled: !!user?.email // Only fetch if user exists

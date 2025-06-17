@@ -7,7 +7,7 @@ import Additional1 from '../components/additionalSection/Additional1';
 const Home = () => {
 
 
-    const foodPromise = fetch("http://localhost:3000/featureFoods").then(res => res.json())
+    const foodPromise = fetch("https://food-sharing-server-khaki.vercel.app/featureFoods").then(res => res.json())
 
     return (
         <div>
