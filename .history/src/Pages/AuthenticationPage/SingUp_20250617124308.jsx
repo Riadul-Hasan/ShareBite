@@ -38,20 +38,23 @@ const SingUp = () => {
 
 
         if (password.length < 6) {
-            setError("Password length should be 6 char or more...")
+            setError("Password length should be 8 char or more...")
             return;
         }
-        
+        // if (!/[^A-Za-z0-9]/.test(password)) {
+        //     setError("Password must have at least one special character");
+        //     return;
+        // }
 
-        if (!/^(?=.*[A-Z]).*$/.test(password)) {
-            setError("Password must have an Uppercase letter")
-            return;
-        }
+        // if (!/^(?=.*[A-Z]).*$/.test(password)) {
+        //     setError("Password must have an Uppercase letter")
+        //     return;
+        // }
 
-        if (!/^(?=.*[a-z]).*$/.test(password)) {
-            setError("Password must have an Lowercase letter")
-            return;
-        }
+        // if (!/^(?=.*[a-z]).*$/.test(password)) {
+        //     setError("Password must have an Lowercase letter")
+        //     return;
+        // }
 
 
   createUser(email, password)
