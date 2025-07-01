@@ -5,7 +5,7 @@ import { Link, useLoaderData } from 'react-router';
 const FeaturedFoods = () => {
     const foods = useLoaderData()
     // console.log(foods)
-   
+
     return (
         <div>
             <h2 className='text-3xl font-bold text-center py-2'>Feature Foods</h2>
