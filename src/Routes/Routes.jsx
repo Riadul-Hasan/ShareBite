@@ -14,6 +14,7 @@ import Loading from "../components/Loading";
 import ErrorPage from "../Pages/ErrorPage";
 import About from "../Pages/newPages/About";
 import BlogPage from "../Pages/newPages/BlogPage";
+import FeatureDetails from "../Pages/newPages/FeatureDetails";
 
 
 
@@ -70,6 +71,14 @@ export const router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://food-sharing-server-khaki.vercel.app/addFood/${params.id}`),
         element: <PrivateRoute><SingleFood></SingleFood></PrivateRoute>
       },
+      {
+        path: "/featureFoods/:id",
+        hydrateFallbackElement: <Loading />,
+        loader: ({ params }) =>
+          fetch(`https://food-sharing-server-khaki.vercel.app/featureFoods/${params.id}`),
+        element: <FeatureDetails />,
+      },
+
       {
         path: "/updateFood/:id",
         hydrateFallbackElement: <Loading></Loading>,
