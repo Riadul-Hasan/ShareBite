@@ -1,101 +1,299 @@
 import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
-
 import Swal from 'sweetalert2';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { motion } from 'framer-motion';
+import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa';
+import { GiForkKnifeSpoon } from 'react-icons/gi';
 
 const Login = () => {
-    const { signInUser, setUser, googlePopUp } = use(AuthContext)
-    const [error, setError] = useState("")
-    const navigate = useNavigate()
-
+    const { signInUser, setUser, googlePopUp } = use(AuthContext);
+    const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
+        setIsLoading(true);
         googlePopUp()
             .then(result => {
                 const userNow = result.user;
                 Swal.fire({
-                    title: "Login Successfull",
+                    title: "Login Successful",
                     icon: "success",
-                    draggable: true
+                    showConfirmButton: false,
+                    timer: 1500,
+                    background: '#f8fafc',
+                    backdrop: `
+                        rgba(0,0,123,0.4)
+                        url("/images/nyan-cat.gif")
+                        left top
+                        no-repeat
+                    `
                 });
-                navigate("/")
-                setUser(userNow)
+                navigate("/");
+                setUser(userNow);
             })
-    }
+            .finally(() => setIsLoading(false));
+    };
 
     const handleSignIn = (e) => {
         e.preventDefault();
+        setIsLoading(true);
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        // console.log(email, password)
         signInUser(email, password)
             .then(result => {
-                // console.log(result.user)
-                setUser(result.user)
+                setUser(result.user);
                 Swal.fire({
-                    title: "Welcome back! Login Success",
+                    title: "Welcome Back!",
+                    text: "Login successful",
                     icon: "success",
-                    draggable: true
+                    showConfirmButton: false,
+                    timer: 1500,
+                    background: '#f8fafc'
                 });
-                navigate("/")
+                navigate("/");
             })
             .catch(error => {
-                console.log(error)
-                setError("Wrong email password")
+                console.log(error);
+                setError("Wrong email or password");
                 Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Wrong email or password",
-  footer: '<a href="#">Why do I have this issue?</a>'
-});
+                    icon: "error",
+                    title: "Login Failed",
+                    text: "Wrong email or password",
+                    footer: '<Link to="/forget-password" class="text-blue-500 hover:underline">Forgot password?</Link>',
+                    background: '#f8fafc'
+                });
             })
-    }
+            .finally(() => setIsLoading(false));
+    };
+
     return (
-        <div className=' py-10 min-h-[calc(100vh-200px)] bg-gradient-to-br from-amber-100 via-orange-50 to-rose-50 flex flex-col items-center justify-center px-4'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className='min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 flex flex-col items-center justify-center px-4 py-12'
+        >
+            <title>Login | Share Bite</title>
 
-        <title>Login</title>
-
-            <div className="card bg-gradient-to-br from-indigo-50 to-purple-100 rounded-2xl p-4 w-full max-w-sm shrink-0  mx-auto mt-20 mb-10">
-                <h2 className='text-2xl font-bold text-center text-gray-700 pt-4'>Welcome Back</h2>
-
-                <p className='text-center text-sm py-2 text-gray-700'>Login to access your account</p>
-                <form onSubmit={handleSignIn} className="card-body">
-                    <fieldset className="fieldset">
-                        {/* email */}
-                        <label className="label">Email</label>
-                        <input required name='email' type="email" className="input rounded-lg" placeholder="Email" />
-                        {/* password */}
-                        <label className="label">Password</label>
-                        <input name='password' type="password" className="input rounded-lg" required placeholder="Password" />
-
-                        <Link className="link link-hover text-indigo-600" to="/forget-password">Forgot password?</Link>
-
-
-                        {
-                            error && <p className='text-red-500 text-xs font-semibold'>{error}</p>
-                        }
-                        <button className="btn btn-neutral mt-4 bg-gradient-to-r from-indigo-500 to-purple-600 border-none text-white hover:from-indigo-600 hover:to-purple-700 ">Login</button>
-                    </fieldset>
-                </form>
-
-                <div className="divider text-gray-600 text-xs p-4">OR</div>
-
-
-                <div className='text-center mb-4'>
-
-                    <button onClick={handleGoogleSignIn} className="btn w-11/12 mx-auto p-2 border bg-white border-gray-200 hover:bg-gray-50 text-gray-700 flex items-center"><FcGoogle />
-                        Sign In with Google</button>
-                </div>
-                <p className='text-center font-semibold pb-4 text-gray-700'>Dont have an account? <Link to="/signUp" className='text-red-500'>Register</Link></p>
+            {/* Floating food icons */}
+            <div className="fixed inset-0 overflow-hidden pointer-events-none">
+                {[...Array(8)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ y: 0, x: Math.random() * 100 }}
+                        animate={{
+                            y: [0, -100, -200, -300, -400],
+                            x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50]
+                        }}
+                        transition={{
+                            duration: 15 + Math.random() * 10,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                        className="absolute text-2xl opacity-20"
+                        style={{
+                            left: `${Math.random() * 100}%`,
+                            top: '100%',
+                            color: ['#f59e0b', '#ef4444', '#10b981'][Math.floor(Math.random() * 3)]
+                        }}
+                    >
+                        {['🍎', '🍕', '🥑', '🍓', '🥐', '🍋', '🍉', '🥨', '🍒', '🥞'][Math.floor(Math.random() * 10)]}
+                    </motion.div>
+                ))}
             </div>
 
+            {/* Main card */}
+            <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="relative bg-white rounded-3xl shadow-xl w-full max-w-md overflow-hidden"
+            >
+                {/* Decorative elements */}
+                <div className="absolute -top-16 -right-16 w-32 h-32 bg-amber-200 rounded-full opacity-20"></div>
+                <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-purple-200 rounded-full opacity-20"></div>
 
-        </div>
+                {/* Header */}
+                <div className="bg-gradient-to-r from-amber-400 to-orange-500 p-6 text-center">
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        className="inline-block bg-white p-3 rounded-full shadow-lg mb-2"
+                    >
+                        <GiForkKnifeSpoon className="text-amber-600 text-3xl" />
+                    </motion.div>
+                    <motion.h2
+                        className='text-3xl font-bold text-white'
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        Welcome Back
+                    </motion.h2>
+                    <motion.p
+                        className='text-amber-100 mt-2'
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        Login to continue sharing food
+                    </motion.p>
+                </div>
 
+                {/* Form */}
+                <motion.form
+                    onSubmit={handleSignIn}
+                    className="p-8 space-y-6"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                >
+                    {/* Email field */}
+                    <motion.div
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.7 }}
+                        className="space-y-2"
+                    >
+                        <label className="block text-gray-700 font-medium">Email</label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <FaEnvelope className="text-gray-400" />
+                            </div>
+                            <input
+                                required
+                                name='email'
+                                type="email"
+                                className="input pl-10 w-full rounded-lg border-gray-300 focus:border-amber-500 focus:ring-amber-500"
+                                placeholder="your@email.com"
+                            />
+                        </div>
+                    </motion.div>
 
+                    {/* Password field */}
+                    <motion.div
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.8 }}
+                        className="space-y-2"
+                    >
+                        <label className="block text-gray-700 font-medium">Password</label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <FaLock className="text-gray-400" />
+                            </div>
+                            <input
+                                name='password'
+                                type="password"
+                                className="input pl-10 w-full rounded-lg border-gray-300 focus:border-amber-500 focus:ring-amber-500"
+                                required
+                                placeholder="••••••••"
+                            />
+                        </div>
+                        <motion.div
+                            whileHover={{ x: 2 }}
+                            className="text-right"
+                        >
+                            <Link className="text-sm text-amber-600 hover:underline" to="/forget-password">
+                                Forgot password?
+                            </Link>
+                        </motion.div>
+                    </motion.div>
+
+                    {error && (
+                        <motion.p
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className='text-red-500 text-sm font-medium'
+                        >
+                            {error}
+                        </motion.p>
+                    )}
+
+                    <motion.button
+                        type="submit"
+                        disabled={isLoading}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className={`w-full py-3 px-4 rounded-lg font-medium text-white shadow-md ${isLoading
+                            ? 'bg-gray-400 cursor-not-allowed'
+                            : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600'
+                            }`}
+                    >
+                        {isLoading ? (
+                            <span className="flex items-center justify-center">
+                                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Processing...
+                            </span>
+                        ) : (
+                            'Login'
+                        )}
+                    </motion.button>
+                </motion.form>
+
+                {/* Divider */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.9 }}
+                    className="px-8"
+                >
+                    <div className="relative">
+                        <div className="absolute inset-0 flex items-center">
+                            <div className="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div className="relative flex justify-center text-sm">
+                            <span className="px-2 bg-white text-gray-500">
+                                Or continue with
+                            </span>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Google login */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    className='p-8 pt-6'
+                >
+                    <motion.button
+                        onClick={handleGoogleSignIn}
+                        disabled={isLoading}
+                        whileHover={{ y: -2, boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 shadow-sm"
+                    >
+                        <FcGoogle className="text-xl" />
+                        Sign in with Google
+                    </motion.button>
+                </motion.div>
+
+                {/* Sign up link */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.1 }}
+                    className="text-center pb-8"
+                >
+                    <p className="text-gray-600">
+                        Don't have an account?{' '}
+                        <Link
+                            to="/signUp"
+                            className="font-medium text-amber-600 hover:text-amber-700 hover:underline"
+                        >
+                            Register
+                        </Link>
+                    </p>
+                </motion.div>
+            </motion.div>
+        </motion.div>
     );
 };
 

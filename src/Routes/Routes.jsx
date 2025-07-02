@@ -12,6 +12,7 @@ import SingleFood from "../Pages/SingleFood";
 import UpdateManageFood from "../Pages/UpdateManageFood";
 import Loading from "../components/Loading";
 import ErrorPage from "../Pages/ErrorPage";
+import About from "../Pages/newPages/About";
 
 
 export const router = createBrowserRouter([
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/addFoods",
         element: <PrivateRoute><AddFood></AddFood></PrivateRoute>,
+      },
+      {
+        path: "/about",
+        element: <About></About>
       },
       {
         path: "/manageFoods",

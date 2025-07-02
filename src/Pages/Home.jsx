@@ -3,7 +3,9 @@ import HeroSection from '../components/HeroSection';
 import FeaturedFoods from '../components/featureFood/FeaturedFoods';
 import Additional2 from '../components/additionalSection/Additional2';
 import Additional1 from '../components/additionalSection/Additional1';
-import { motion } from "motion/react"
+import BlogSection from '../newSection/BlogSection';
+import NewsletterSection from '../newSection/NewsletterSection';
+import PromotionalSection from '../newSection/PromotionalSection';
 
 const Home = () => {
 
@@ -13,22 +15,22 @@ const Home = () => {
     return (
         <div>
             <HeroSection></HeroSection>
-            <motion.div 
-             initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 2 }}
+            <div className='bg-gradient-to-b from-orange-50 to-white'>
+                <div className='container mx-auto py-20'>
+                    <FeaturedFoods foodPromise={foodPromise}></FeaturedFoods>
+                </div>
 
-            className='container mx-auto py-20'>
-                <FeaturedFoods foodPromise={foodPromise}></FeaturedFoods>
-            </motion.div>
-
+            </div>
+            <BlogSection></BlogSection>
+            <PromotionalSection></PromotionalSection>
             <div>
                 <Additional2></Additional2>
             </div>
             <div className='py-16'>
-                
+
                 <Additional1></Additional1>
             </div>
+            <NewsletterSection></NewsletterSection>
         </div>
     );
 };
