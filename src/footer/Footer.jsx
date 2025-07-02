@@ -1,62 +1,95 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FaEnvelope, FaPhone, FaClock, FaTwitter, FaYoutube, FaFacebook, FaUtensils } from 'react-icons/fa';
 
 const Footer = () => {
+    const socialLinks = [
+        { icon: <FaTwitter />, url: 'https://x.com/act_like_riadul' },
+        { icon: <FaYoutube />, url: 'https://www.youtube.com/@ProgrammingHeroCommunity' },
+        { icon: <FaFacebook />, url: 'https://www.facebook.com/riad.hasan.39142072/' }
+    ];
+
     return (
-        <footer className="footer transition-all duration-500  sm:footer-horizontal bg-cyan-800 text-white p-10">
+        <footer className="bg-gradient-to-r from-stone-800 via-stone-700 to-stone-900 text-amber-50 py-12 px-4 border-t-4 border-amber-700">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8"
+            >
+                {/* Branding */}
+                <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-center gap-3"
+                >
+                    <FaUtensils className="text-3xl text-amber-200" />
+                    <div>
+                        <h3 className="text-2xl font-bold text-white">Share<span className="text-amber-200">Bite</span></h3>
+                        <p className="text-amber-100 text-sm">Nourishing communities together</p>
+                    </div>
+                </motion.div>
 
-            <nav>
-                <h6 className="footer-title">Tips</h6>
-                <a className="link link-hover">Food Safety Guidance</a>
-                <a className="link link-hover">Nutritional Value Analysis</a>
-                <a className="link link-hover">Community Food Exchange Network</a>
+                {/* Contact Info */}
+                <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="space-y-2 text-center md:text-left"
+                >
+                    <h3 className="text-lg font-semibold mb-3 text-amber-100">Get in Touch</h3>
+                    <div className="flex items-center gap-3 text-amber-50">
+                        <FaEnvelope className="text-amber-200" />
+                        <a href="mailto:riadb368@gmail.com" className="hover:text-white transition-colors">
+                            riadb368@gmail.com
+                        </a>
+                    </div>
+                    <div className="flex items-center gap-3 text-amber-50">
+                        <FaPhone className="text-amber-200" />
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-amber-50">
+                        <FaClock className="text-amber-200" />
+                        <span>Mon-Fri: 9am-5pm</span>
+                    </div>
+                </motion.div>
 
-            </nav>
-            <nav>
-                <h6 className="footer-title">Contact Us</h6>
-                <a className="link link-hover">📧 riadb368@gmail.com</a>
-                <a className="link link-hover">📞 (555) 123-4567</a>
-                <a className="link link-hover">🕒 Mon-Fri: 9am-5pm
-                </a>
-                {/* <a className="link link-hover">Press kit</a> */}
-            </nav>
-            <nav>
-                <h6 className="footer-title">Social</h6>
-                <div className="grid grid-flow-col gap-4">
-                    <a href='https://x.com/act_like_riadul' target='_main'>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            className="fill-current">
-                            <path
-                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-                        </svg>
-                    </a>
-                    <a href='https://www.youtube.com/@ProgrammingHeroCommunity' target='_main'>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            className="fill-current">
-                            <path
-                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                        </svg>
-                    </a>
-                    <a href='https://www.facebook.com/riad.hasan.39142072/' target='_main'>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            className="fill-current">
-                            <path
-                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                        </svg>
-                    </a>
-                </div>
-            </nav>
+                {/* Social Icons */}
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="flex flex-col items-center"
+                >
+                    <h3 className="text-lg font-semibold mb-4 text-amber-100">Connect With Us</h3>
+                    <div className="flex gap-5">
+                        {socialLinks.map((social, index) => (
+                            <motion.a
+                                key={index}
+                                href={social.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{
+                                    y: -5,
+                                    color: '#fef3c7',
+                                    scale: 1.2
+                                }}
+                                transition={{ type: 'spring', stiffness: 300 }}
+                                className="text-xl text-amber-100 hover:text-white transition-colors"
+                            >
+                                {social.icon}
+                            </motion.a>
+                        ))}
+                    </div>
+                </motion.div>
+            </motion.div>
+
+            {/* Copyright */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-center mt-12 pt-6 border-t border-amber-700 text-amber-100 text-sm"
+            >
+                © {new Date().getFullYear()} Share Bite. All rights reserved.
+            </motion.div>
         </footer>
     );
 };

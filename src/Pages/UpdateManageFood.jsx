@@ -200,7 +200,7 @@ const UpdateManageFood = () => {
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-colors shadow-md active:scale-[0.98]"
+              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-colors shadow-md active:scale-[0.98]"
             >
               Update Now
             </button>

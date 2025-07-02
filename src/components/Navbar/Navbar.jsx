@@ -1,14 +1,11 @@
 import React, { use } from "react";
-
 import { Link, NavLink, useNavigate } from "react-router";
-
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
   const navigate = useNavigate();
-  // console.log(user)
 
   const handleLogout = () => [
     logOut()
@@ -24,10 +21,11 @@ const Navbar = () => {
         console.log(error);
       }),
   ];
+
   return (
-    <div className="navbar bg-white  px-8 py-4 rounded-lg">
-      {/* Mobile menu button (unchanged functionality) */}
-      <div className="navbar-start ">
+    <div className="navbar bg-[#FFF9F0] px-8 py-4 rounded-lg sticky top-0 z-50 shadow-md">
+      {/* Mobile menu button */}
+      <div className="navbar-start">
         <div className="dropdown">
           <div
             tabIndex={0}
@@ -56,10 +54,9 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `px-4 py-2 rounded-lg font-medium transition-all ${
-                  isActive
-                    ? "bg-white text-green-600"
-                    : "hover:bg-green-600 hover:bg-opacity-30"
+                `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                  ? "bg-white text-amber-500"
+                  : "hover:bg-amber-200 hover:bg-opacity-30"
                 }`
               }
             >
@@ -68,24 +65,35 @@ const Navbar = () => {
             <NavLink
               to="/availableFoods"
               className={({ isActive }) =>
-                `px-4 py-2 rounded-lg font-medium transition-all ${
-                  isActive
-                    ? "bg-white text-green-600"
-                    : "hover:bg-green-600 hover:bg-opacity-30"
+                `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                  ? "bg-white text-amber-500"
+                  : "hover:bg-amber-200 hover:bg-opacity-30"
                 }`
               }
             >
               <li>Available Foods</li>
             </NavLink>
 
+            {/* Added About Us for mobile */}
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                  ? "bg-white text-amber-500"
+                  : "hover:bg-amber-200 hover:bg-opacity-30"
+                }`
+              }
+            >
+              <li>About Us</li>
+            </NavLink>
+
             {user && (
               <NavLink
                 to="/addFoods"
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg font-medium transition-all ${
-                    isActive
-                      ? "bg-white text-green-600"
-                      : "hover:bg-green-600 hover:bg-opacity-30"
+                  `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                    ? "bg-white text-amber-500"
+                    : "hover:bg-amber-200 hover:bg-opacity-30"
                   }`
                 }
               >
@@ -96,10 +104,9 @@ const Navbar = () => {
               <NavLink
                 to="/manageFoods"
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg font-medium transition-all ${
-                    isActive
-                      ? "bg-white text-green-600"
-                      : "hover:bg-green-600 hover:bg-opacity-30"
+                  `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                    ? "bg-white text-amber-500"
+                    : "hover:bg-amber-200 hover:bg-opacity-30"
                   }`
                 }
               >
@@ -110,10 +117,9 @@ const Navbar = () => {
               <NavLink
                 to="/myFoodRequest"
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg font-medium transition-all ${
-                    isActive
-                      ? "bg-white text-green-600"
-                      : "hover:bg-green-600 hover:bg-opacity-30"
+                  `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                    ? "bg-white text-amber-500"
+                    : "hover:bg-amber-200 hover:bg-opacity-30"
                   }`
                 }
               >
@@ -128,10 +134,9 @@ const Navbar = () => {
                   <NavLink
                     to="/login"
                     className={({ isActive }) =>
-                      `px-4 py-2 rounded-lg font-medium transition-all ${
-                        isActive
-                          ? "bg-white text-green-600"
-                          : "hover:bg-green-600 hover:bg-opacity-30"
+                      `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                        ? "bg-white text-amber-500"
+                        : "hover:bg-amber-200 hover:bg-opacity-30"
                       }`
                     }
                   >
@@ -140,10 +145,9 @@ const Navbar = () => {
                   <NavLink
                     to="/signUp"
                     className={({ isActive }) =>
-                      `px-4 py-2 rounded-lg font-medium transition-all ${
-                        isActive
-                          ? "bg-white text-green-600"
-                          : "hover:bg-green-600 hover:bg-opacity-30"
+                      `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                        ? "bg-white text-amber-500"
+                        : "hover:bg-amber-200 hover:bg-opacity-30"
                       }`
                     }
                   >
@@ -189,11 +193,6 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        {/* Logo */}
-        {/* <NavLink to="/" className="flex items-center">
-                    
-                    <span className="ml-2 text-2xl font-bold  hidden sm:inline-block">Share Bite</span>
-                </NavLink> */}
         <NavLink to="/" className="flex items-center group">
           <span className="ml-2 text-2xl font-bold hidden sm:inline-block">
             <span className="">Share</span>
@@ -205,15 +204,14 @@ const Navbar = () => {
       </div>
 
       {/* Desktop menu */}
-      <div className="navbar-center hidden  lg:flex items-center">
+      <div className="navbar-center hidden lg:flex items-center">
         <ul className="menu menu-horizontal px-1 space-x-2">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-lg font-medium transition-all ${
-                isActive
-                  ? "bg-white text-amber-500"
-                  : "hover:bg-amber-200 hover:bg-opacity-30"
+              `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                ? "bg-white text-amber-500"
+                : "hover:bg-amber-200 hover:bg-opacity-30"
               }`
             }
           >
@@ -222,74 +220,66 @@ const Navbar = () => {
           <NavLink
             to="/availableFoods"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-lg font-medium transition-all ${
-                isActive
-                  ? "bg-white text-amber-500"
-                  : "hover:bg-amber-200 hover:bg-opacity-30"
+              `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                ? "bg-white text-amber-500"
+                : "hover:bg-amber-200 hover:bg-opacity-30"
               }`
             }
           >
             <li>Available Foods</li>
           </NavLink>
-
           <NavLink
-            to="/addFoods"
+            to="/about"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-lg font-medium transition-all ${
-                isActive
-                  ? "bg-white text-amber-500"
-                  : "hover:bg-amber-200 hover:bg-opacity-30"
+              `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                ? "bg-white text-amber-500"
+                : "hover:bg-amber-200 hover:bg-opacity-30"
               }`
             }
           >
-            <li>Add Food</li>
+            <li>About Us</li>
           </NavLink>
 
-          <NavLink
-            to="/manageFoods"
-            className={({ isActive }) =>
-              `px-4 py-2 rounded-lg font-medium transition-all ${
-                isActive
+          {user && (
+            <NavLink
+              to="/addFoods"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-lg font-medium transition-all ${isActive
                   ? "bg-white text-amber-500"
                   : "hover:bg-amber-200 hover:bg-opacity-30"
-              }`
-            }
-          >
-            <li>Manage My Foods</li>
-          </NavLink>
-          <NavLink
-            to="/myFoodRequest"
-            className={({ isActive }) =>
-              `px-4 py-2 rounded-lg font-medium transition-all ${
-                isActive
+                }`
+              }
+            >
+              <li>Add Food</li>
+            </NavLink>
+          )}
+
+          {user && (
+            <NavLink
+              to="/manageFoods"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-lg font-medium transition-all ${isActive
                   ? "bg-white text-amber-500"
                   : "hover:bg-amber-200 hover:bg-opacity-30"
-              }`
-            }
-          >
-            <li>My Food Request</li>
-          </NavLink>
-
-          {/* {
-                        user && <NavLink to="/addFoods" className={({ isActive }) =>
-                            `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
-                            <li>Add Food</li>
-                        </NavLink>
-
-                    } */}
-          {/*                     
-                    {
-                        user && <NavLink to="/manageFoods" className={({ isActive }) =>
-                            `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
-                            <li>Manage My Foods</li>
-                        </NavLink>
-                    }
-                    {
-                        user && <NavLink to="/myFoodRequest" className={({ isActive }) =>
-                            `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
-                            <li>My Food Request</li>
-                        </NavLink>
-                    } */}
+                }`
+              }
+            >
+              <li>Manage My Foods</li>
+            </NavLink>
+          )}
+          {user && (
+            <NavLink
+              to="/myFoodRequest"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                  ? "bg-white text-amber-500"
+                  : "hover:bg-amber-200 hover:bg-opacity-30"
+                }`
+              }
+            >
+              <li>My Food Request</li>
+            </NavLink>
+          )}
 
           {/* Auth buttons */}
           <div className="flex items-center ml-2 gap-3">
@@ -298,10 +288,9 @@ const Navbar = () => {
                 <NavLink
                   to="/login"
                   className={({ isActive }) =>
-                    `px-4 py-2 rounded-lg font-medium transition-all ${
-                      isActive
-                        ? "bg-white text-green-600"
-                        : "hover:bg-green-600 hover:bg-opacity-30"
+                    `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                      ? "bg-white text-amber-500"
+                      : "hover:bg-amber-200 hover:bg-opacity-30"
                     }`
                   }
                 >
@@ -310,10 +299,9 @@ const Navbar = () => {
                 <NavLink
                   to="/signUp"
                   className={({ isActive }) =>
-                    `px-4 py-2 rounded-lg font-medium transition-all ${
-                      isActive
-                        ? "bg-white text-green-600"
-                        : "hover:bg-green-600 hover:bg-opacity-30"
+                    `px-4 py-2 rounded-lg font-medium transition-all ${isActive
+                      ? "bg-white text-amber-500"
+                      : "hover:bg-amber-200 hover:bg-opacity-30"
                     }`
                   }
                 >
@@ -362,22 +350,19 @@ const Navbar = () => {
 
       {/* CTA Button */}
       <div className="navbar-end">
-        {
-            user && (
-                <NavLink
-          to="/signUp"
-          className={({ isActive }) =>
-            `px-4 py-2 rounded-lg font-medium transition-all ${
-              isActive
+        {user && (
+          <NavLink
+            to="/signUp"
+            className={({ isActive }) =>
+              `px-4 py-2 rounded-lg font-medium transition-all ${isActive
                 ? "bg-white text-green-600"
                 : "hover:bg-blue-300 hover:bg-opacity-30"
-            }`
-          }
-        >
-          <button onClick={handleLogout}>Logout</button>
-        </NavLink>
-            )
-        }
+              }`
+            }
+          >
+            <button onClick={handleLogout}>Logout</button>
+          </NavLink>
+        )}
       </div>
     </div>
   );

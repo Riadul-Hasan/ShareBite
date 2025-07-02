@@ -16,7 +16,7 @@ const FeaturedFoods = () => {
             </div>
             <div className='text-center'>
                 <Link to="/availableFoods">
-                    <button className='btn btn-primary '>Show All</button>
+                    <button className='btn  bg-gradient-to-r from-orange-500 to-amber-500 text-white'>Show All</button>
                 </Link>
             </div>
         </div>
