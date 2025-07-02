@@ -259,11 +259,11 @@ const SingleFood = () => {
 
             {/* Request modal */}
             <dialog id="request_modal" className="modal">
-                <div className="modal-box w-11/12 max-w-3xl rounded-2xl overflow-hidden p-0">
+                <div className="modal-box w-11/12 max-w-3xl max-h-screen overflow-y-auto rounded-2xl overflow-hidden p-8 lg:p-2">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-gradient-to-r from-amber-500 to-orange-500 p-6 text-white"
+                        className="bg-gradient-to-r from-amber-500 to-orange-500 p-6 rounded-xl text-white"
                     >
                         <h3 className="font-bold text-2xl flex items-center">
                             <GiMeal className="mr-3" />
@@ -409,6 +409,7 @@ const SingleFood = () => {
                     <button>close</button>
                 </form>
             </dialog>
+
         </motion.div>
     );
 };

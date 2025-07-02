@@ -9,7 +9,7 @@ const FeaturedFoods = () => {
     return (
         <div>
             <h2 className='text-3xl font-bold text-center py-2'>Feature Foods</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-10 p-2'>
                 {
                     foods.map(food => <FeatureCard key={food._id} food={food}></FeatureCard>)
                 }
