@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router';
 
 const BlogSection = () => {
     const [ref, inView] = useInView({
@@ -141,7 +142,7 @@ const BlogSection = () => {
                                 <p className="text-gray-600 mb-4">{post.excerpt}</p>
                                 <div className="flex justify-between items-center">
                                     <span className="text-sm text-orange-500">{post.readTime}</span>
-                                    <motion.button
+                                    <Link to="/blogs"> <motion.button
                                         className="text-orange-600 font-medium flex items-center"
                                         whileHover={{ x: 5 }}
                                     >
@@ -149,7 +150,7 @@ const BlogSection = () => {
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                         </svg>
-                                    </motion.button>
+                                    </motion.button></Link>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -162,16 +163,18 @@ const BlogSection = () => {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.4 }}
                 >
-                    <motion.button
-                        className="bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 px-8 rounded-full font-semibold shadow-md"
-                        whileHover={{
-                            scale: 1.05,
-                            boxShadow: "0 10px 20px rgba(255, 105, 0, 0.3)"
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        View All Blog Posts
-                    </motion.button>
+                    <Link to="/blogs">
+                        <motion.button
+                            className="bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 px-8 rounded-full font-semibold shadow-md"
+                            whileHover={{
+                                scale: 1.05,
+                                boxShadow: "0 10px 20px rgba(255, 105, 0, 0.3)"
+                            }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            View All Blog Posts
+                        </motion.button>
+                    </Link>
                 </motion.div>
             </div>
         </section>

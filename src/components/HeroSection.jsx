@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import Food1 from "../assets/food1.jpg";
 import Food2 from "../assets/food2.jpg";
 import { FaUtensils, FaLeaf, FaHeart, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const HeroSection = () => {
     const banners = [
@@ -150,15 +151,17 @@ const HeroSection = () => {
                                         variants={textVariants}
                                         className="flex justify-center"
                                     >
-                                        <motion.button
-                                            variants={buttonVariants}
-                                            whileHover="hover"
-                                            whileTap="tap"
-                                            className={`${banner.buttonColor} text-white rounded-full px-8 py-3 text-lg font-semibold border-2 border-white/30 flex items-center gap-2 transition-all`}
-                                        >
-                                            {banner.buttonText}
-                                            <FaArrowRight className="text-sm" />
-                                        </motion.button>
+                                        <Link to="/availableFoods">
+                                            <motion.button
+                                                variants={buttonVariants}
+                                                whileHover="hover"
+                                                whileTap="tap"
+                                                className={`${banner.buttonColor} text-white rounded-full px-8 py-3 text-lg font-semibold border-2 border-white/30 flex items-center gap-2 transition-all`}
+                                            >
+                                                {banner.buttonText}
+                                                <FaArrowRight className="text-sm" />
+                                            </motion.button>
+                                        </Link>
                                     </motion.div>
                                 </motion.div>
                             </div>

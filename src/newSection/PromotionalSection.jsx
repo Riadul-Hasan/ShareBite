@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router';
 
 
 const PromotionalSection = () => {
@@ -116,13 +117,15 @@ const PromotionalSection = () => {
                             <p className="text-gray-600 mb-6">
                                 Join our community of food sharers today. It only takes a minute to get started.
                             </p>
-                            <motion.button
-                                className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 px-6 rounded-full shadow-sm"
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.97 }}
-                            >
-                                Sign Up Now
-                            </motion.button>
+                            <Link to="/signUp">
+                                <motion.button
+                                    className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 px-6 rounded-full shadow-sm"
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
+                                >
+                                    Sign Up Now
+                                </motion.button>
+                            </Link>
                         </div>
                         <div className="md:w-1/2 flex justify-center">
                             <motion.div

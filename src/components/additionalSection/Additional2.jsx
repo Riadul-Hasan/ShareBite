@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import Food1 from '../../assets/food1.jpg';
 import Food2 from '../../assets/food2.jpg';
 import Food3 from '../../assets/food3.jpg';
+import { Link } from 'react-router';
 
 const slides = [
   // {
@@ -112,20 +113,22 @@ const Additional2 = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.9 }}
                   >
-                    <motion.button
+                    <Link to="/addFoods"> <motion.button
                       className="px-8 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white font-medium shadow-lg hover:shadow-amber-300/30 transition-all"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       Explore
-                    </motion.button>
-                    <motion.button
-                      className="px-8 py-3 rounded-full border-2 border-white text-white font-medium hover:bg-white/10 transition-all"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Learn More
-                    </motion.button>
+                    </motion.button></Link>
+                    <Link to="/about">
+                      <motion.button
+                        className="px-8 py-3 rounded-full border-2 border-white text-white font-medium hover:bg-white/10 transition-all"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Learn More
+                      </motion.button>
+                    </Link>
                   </motion.div>
                 </motion.div>
               </div>

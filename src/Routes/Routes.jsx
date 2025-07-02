@@ -13,6 +13,8 @@ import UpdateManageFood from "../Pages/UpdateManageFood";
 import Loading from "../components/Loading";
 import ErrorPage from "../Pages/ErrorPage";
 import About from "../Pages/newPages/About";
+import BlogPage from "../Pages/newPages/BlogPage";
+
 
 
 export const router = createBrowserRouter([
@@ -57,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: "/signUp",
         Component: SingUp
+      },
+      {
+        path: "/blogs",
+        element: <BlogPage></BlogPage>
       },
       {
         path: "/singleFood/:id",

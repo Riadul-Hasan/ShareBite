@@ -109,7 +109,9 @@ const ManageMyFoods = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
+
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Manage Your Shared Foods</h1>
+
           <p className="text-gray-600">View, update or remove your shared food items</p>
         </motion.div>
 
@@ -131,7 +133,7 @@ const ManageMyFoods = () => {
             <h2 className="text-2xl font-semibold text-gray-800 mb-2">No Food Items Found</h2>
             <p className="text-gray-600 mb-6">You haven't shared any food items yet.</p>
             <Link
-              to="/addFood"
+              to="/addFoods"
               className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-6 rounded-full transition-colors"
             >
               Share Your First Food Item
