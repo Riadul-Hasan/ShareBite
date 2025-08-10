@@ -37,14 +37,14 @@ const AddFood = () => {
     });
   };
   return (
-    <div className='bg-gradient-to-br from-red-50 via-amber-50 to-orange-50 py-16'>
+    <div className='bg-gradient-to-br from-red-50 via-amber-50 to-orange-50 dark:from-gray-800 dark:via-gray-900 dark:to-black py-16'>
       <title>Add Food</title>
-      <div className="max-w-2xl mx-auto   p-6 bg-white rounded-xl shadow-md border border-gray-100">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Food for Sharing</h2>
+      <div className="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">Add Food for Sharing</h2>
 
         {/* Donor Info Section */}
-        <div className="bg-gray-100 p-4 rounded-lg mb-6">
-          <h3 className="font-medium text-gray-700 mb-3">My Information</h3>
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6">
+          <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-3">My Information</h3>
           <div className="flex items-center space-x-4">
             <img
               src={user?.photoURL}
@@ -53,40 +53,39 @@ const AddFood = () => {
               className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
             />
             <div>
-              <p className="font-medium">{user?.displayName}</p>
-              <p className="text-sm text-gray-600">{user?.email}</p>
+              <p className="font-medium text-gray-900 dark:text-gray-100">{user?.displayName}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{user?.email}</p>
             </div>
           </div>
         </div>
 
         {/* Food Form Fields */}
         <form onSubmit={handleAddFood}>
-
           <div className="space-y-4">
             {/* Food Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Food Name *
               </label>
               <input
                 type="text"
                 name='name'
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                 placeholder="e.g., Fresh Apple Pie"
               />
             </div>
 
             {/* Food Image URL */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Food Image URL *
               </label>
               <input
                 type="url"
                 name='foodUrl'
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                 placeholder="https://example.com/food-image.jpg"
               />
             </div>
@@ -94,44 +93,45 @@ const AddFood = () => {
             {/* Quantity and Expiry Date */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Quantity *
                 </label>
                 <input
                   type="number"
                   min="1"
                   name='quantity'
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                   placeholder="e.g., 5"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Expiry Date/Time *
                 </label>
                 <input
                   type="datetime-local"
                   name='dateTime'
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                 />
               </div>
             </div>
 
             {/* Pickup Location */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Pickup Location *
               </label>
               <input
                 type="text"
                 name='location'
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                 placeholder="e.g., 123 Main St, City"
               />
             </div>
-            {/* donor image */}
+
+            {/* Donor image */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Donor Image *
               </label>
               <input
@@ -139,13 +139,13 @@ const AddFood = () => {
                 name='donorImage'
                 value={user?.photoURL}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
-                placeholder="e.g., 123 Main St, City"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
               />
             </div>
-            {/* donor name */}
+
+            {/* Donor name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Donor Name *
               </label>
               <input
@@ -153,13 +153,13 @@ const AddFood = () => {
                 name='donorName'
                 value={user?.displayName}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
-                placeholder="e.g., 123 Main St, City"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
               />
             </div>
-            {/* donor email */}
+
+            {/* Donor email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Donor email *
               </label>
               <input
@@ -167,13 +167,13 @@ const AddFood = () => {
                 name='email'
                 value={user?.email}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
-                placeholder="e.g., 123 Main St, City"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
               />
             </div>
-            {/* food status */}
+
+            {/* Food status */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Food Status
               </label>
               <input
@@ -181,21 +181,19 @@ const AddFood = () => {
                 name='foodStatus'
                 value={"available"}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
-                placeholder="e.g., 123 Main St, City"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
               />
             </div>
 
-
             {/* Additional Notes */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Additional Notes
               </label>
               <textarea
                 rows="3"
                 name='notes'
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                 placeholder="Any special instructions or details about the food"
               ></textarea>
             </div>
@@ -213,6 +211,7 @@ const AddFood = () => {
         </form>
       </div>
     </div>
+
   );
 };
 
