@@ -64,7 +64,7 @@ const PromotionalSection = () => {
     ];
 
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-orange-50">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-orange-50 dark:bg-stone-900">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     ref={ref}
@@ -75,13 +75,13 @@ const PromotionalSection = () => {
                 >
                     <motion.h2
                         variants={itemVariants}
-                        className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                        className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-orange-100 mb-4"
                     >
                         Join the Food Sharing Movement
                     </motion.h2>
                     <motion.p
                         variants={itemVariants}
-                        className="text-lg text-gray-600 max-w-3xl mx-auto"
+                        className="text-lg text-gray-600 dark:text-orange-300 max-w-3xl mx-auto"
                     >
                         Discover how sharing food can transform communities
                     </motion.p>
@@ -91,35 +91,35 @@ const PromotionalSection = () => {
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
-                            className="bg-white rounded-xl p-6 shadow-sm border border-orange-100 hover:shadow-md transition-shadow"
+                            className="bg-white dark:bg-stone-800 rounded-xl p-6 shadow-sm border border-orange-100 dark:border-stone-700 hover:shadow-md dark:hover:shadow-stone-700/50 transition-shadow"
                             variants={itemVariants}
                             whileHover={{ y: -5 }}
                         >
-                            <div className="bg-orange-100/50 text-orange-600 w-14 h-14 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <div className="bg-orange-100/50 dark:bg-stone-700 text-orange-600 dark:text-orange-400 w-14 h-14 rounded-full flex items-center justify-center mb-4 mx-auto">
                                 {feature.icon}
                             </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">{feature.title}</h3>
-                            <p className="text-gray-600 text-sm text-center">{feature.description}</p>
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-orange-100 mb-2 text-center">{feature.title}</h3>
+                            <p className="text-gray-600 dark:text-orange-300 text-sm text-center">{feature.description}</p>
                         </motion.div>
                     ))}
                 </div>
 
                 <motion.div
-                    className="relative bg-white rounded-xl shadow-md overflow-hidden border border-orange-200"
+                    className="relative bg-white dark:bg-stone-800 rounded-xl shadow-md overflow-hidden border border-orange-200 dark:border-stone-700"
                     initial={{ opacity: 0, y: 30 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.3 }}
                 >
-                    <div className="absolute inset-0 bg-orange-500/5"></div>
+                    <div className="absolute inset-0 bg-orange-500/5 dark:bg-orange-500/10"></div>
                     <div className="relative z-10 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
                         <div className="md:w-1/2">
-                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to make a difference?</h3>
-                            <p className="text-gray-600 mb-6">
+                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-orange-100 mb-4">Ready to make a difference?</h3>
+                            <p className="text-gray-600 dark:text-orange-300 mb-6">
                                 Join our community of food sharers today. It only takes a minute to get started.
                             </p>
                             <Link to="/signUp">
                                 <motion.button
-                                    className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 px-6 rounded-full shadow-sm"
+                                    className="bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700 text-white font-medium py-2.5 px-6 rounded-full shadow-sm"
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
                                 >

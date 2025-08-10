@@ -81,7 +81,7 @@ const BlogSection = () => {
     };
 
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-orange-50 to-white" id="blog">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-orange-50 to-white dark:from-stone-800 dark:to-stone-900" id="blog">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     ref={ref}
@@ -92,13 +92,13 @@ const BlogSection = () => {
                 >
                     <motion.h2
                         variants={itemVariants}
-                        className="text-4xl font-bold text-gray-900 mb-4"
+                        className="text-4xl font-bold text-gray-900 mb-4 dark:text-amber-100"
                     >
                         Latest From Our Blog
                     </motion.h2>
                     <motion.p
                         variants={itemVariants}
-                        className="text-xl text-gray-600 max-w-3xl mx-auto"
+                        className="text-xl text-gray-600 max-w-3xl mx-auto dark:text-amber-200"
                     >
                         Discover tips, stories, and insights about food sharing and community building
                     </motion.p>
@@ -113,7 +113,7 @@ const BlogSection = () => {
                     {blogPosts.map((post) => (
                         <motion.div
                             key={post.id}
-                            className="bg-white rounded-2xl overflow-hidden shadow-lg border border-orange-100"
+                            className="bg-white rounded-2xl overflow-hidden shadow-lg border border-orange-100 dark:bg-stone-800 dark:border-stone-700"
                             variants={itemVariants}
                             whileHover="hover"
                         >
@@ -137,20 +137,28 @@ const BlogSection = () => {
                                     backgroundColor: "rgba(255, 247, 237, 0.5)",
                                     transition: { duration: 0.3 }
                                 }}
+                                _dark={{
+                                    whileHover: {
+                                        backgroundColor: "rgba(55, 65, 81, 0.5)",
+                                        transition: { duration: 0.3 }
+                                    }
+                                }}
                             >
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{post.title}</h3>
-                                <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2 dark:text-amber-100">{post.title}</h3>
+                                <p className="text-gray-600 mb-4 dark:text-amber-200">{post.excerpt}</p>
                                 <div className="flex justify-between items-center">
-                                    <span className="text-sm text-orange-500">{post.readTime}</span>
-                                    <Link to="/blogs"> <motion.button
-                                        className="text-orange-600 font-medium flex items-center"
-                                        whileHover={{ x: 5 }}
-                                    >
-                                        Read More
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </motion.button></Link>
+                                    <span className="text-sm text-orange-500 dark:text-amber-400">{post.readTime}</span>
+                                    <Link to="/blogs">
+                                        <motion.button
+                                            className="text-orange-600 font-medium flex items-center dark:text-amber-400"
+                                            whileHover={{ x: 5 }}
+                                        >
+                                            Read More
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </motion.button>
+                                    </Link>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -165,7 +173,7 @@ const BlogSection = () => {
                 >
                     <Link to="/blogs">
                         <motion.button
-                            className="bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 px-8 rounded-full font-semibold shadow-md"
+                            className="bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 px-8 rounded-full font-semibold shadow-md dark:from-amber-600 dark:to-amber-700"
                             whileHover={{
                                 scale: 1.05,
                                 boxShadow: "0 10px 20px rgba(255, 105, 0, 0.3)"
