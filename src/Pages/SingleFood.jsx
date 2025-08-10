@@ -118,7 +118,7 @@ const SingleFood = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 py-12 px-4 sm:px-6 lg:px-8"
+            className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-stone-900 dark:via-stone-800 dark:to-stone-950 py-12 px-4 sm:px-6 lg:px-8"
         >
             <title>{name} | Share Bite</title>
 
@@ -126,7 +126,7 @@ const SingleFood = () => {
             <motion.button
                 onClick={() => navigate(-1)}
                 whileHover={{ x: -5 }}
-                className="flex items-center text-amber-600 mb-6 font-medium"
+                className="flex items-center text-amber-600 dark:text-amber-400 mb-6 font-medium"
             >
                 <FaArrowLeft className="mr-2" />
                 Back to Foods
@@ -142,7 +142,7 @@ const SingleFood = () => {
                 {/* Food card */}
                 <motion.div
                     variants={itemVariants}
-                    className="flex flex-col lg:flex-row bg-white rounded-2xl shadow-xl overflow-hidden"
+                    className="flex flex-col lg:flex-row bg-white dark:bg-stone-800 rounded-2xl shadow-xl dark:shadow-stone-900/50 overflow-hidden"
                 >
                     {/* Food image */}
                     <motion.div
@@ -159,13 +159,13 @@ const SingleFood = () => {
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
                             <h1 className="text-2xl font-bold text-white">{name}</h1>
                             <div className="flex items-center mt-2">
-                                <div className="flex items-center text-sm text-amber-100 mr-4">
+                                <div className="flex items-center text-sm text-amber-100 dark:text-amber-200 mr-4">
                                     <FaUser className="mr-2" />
                                     <span>{donorName}</span>
                                 </div>
                                 <div className={`px-3 py-1 rounded-full text-xs font-medium ${foodStatus === 'available'
-                                    ? 'bg-green-100 text-green-800'
-                                    : 'bg-gray-100 text-gray-800'
+                                    ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
+                                    : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
                                     }`}>
                                     {foodStatus === 'available' ? 'Available' : 'Requested'}
                                 </div>
@@ -180,49 +180,49 @@ const SingleFood = () => {
                     >
                         <motion.div variants={itemVariants} className="space-y-6">
                             <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-amber-50 p-4 rounded-xl">
+                                <div className="bg-amber-50 dark:bg-stone-700 p-4 rounded-xl">
                                     <div className="flex items-center mb-2">
-                                        <div className="bg-amber-100 p-2 rounded-full mr-3">
-                                            <IoFastFood className="text-amber-600" />
+                                        <div className="bg-amber-100 dark:bg-stone-600 p-2 rounded-full mr-3">
+                                            <IoFastFood className="text-amber-600 dark:text-amber-400" />
                                         </div>
-                                        <h3 className="font-medium text-gray-700">Quantity</h3>
+                                        <h3 className="font-medium text-gray-700 dark:text-amber-100">Quantity</h3>
                                     </div>
-                                    <p className="text-2xl font-bold text-amber-600">{quantity} servings</p>
+                                    <p className="text-2xl font-bold text-amber-600 dark:text-amber-400">{quantity} servings</p>
                                 </div>
 
-                                <div className="bg-amber-50 p-4 rounded-xl">
+                                <div className="bg-amber-50 dark:bg-stone-700 p-4 rounded-xl">
                                     <div className="flex items-center mb-2">
-                                        <div className="bg-amber-100 p-2 rounded-full mr-3">
-                                            <IoTimeOutline className="text-amber-600" />
+                                        <div className="bg-amber-100 dark:bg-stone-600 p-2 rounded-full mr-3">
+                                            <IoTimeOutline className="text-amber-600 dark:text-amber-400" />
                                         </div>
-                                        <h3 className="font-medium text-gray-700">Expires</h3>
+                                        <h3 className="font-medium text-gray-700 dark:text-amber-100">Expires</h3>
                                     </div>
-                                    <p className="text-xl font-bold text-red-500">
+                                    <p className="text-xl font-bold text-red-500 dark:text-red-400">
                                         {new Date(dateTime).toLocaleDateString()}
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="bg-amber-50 p-4 rounded-xl">
+                            <div className="bg-amber-50 dark:bg-stone-700 p-4 rounded-xl">
                                 <div className="flex items-center mb-2">
-                                    <div className="bg-amber-100 p-2 rounded-full mr-3">
-                                        <FaMapMarkerAlt className="text-amber-600" />
+                                    <div className="bg-amber-100 dark:bg-stone-600 p-2 rounded-full mr-3">
+                                        <FaMapMarkerAlt className="text-amber-600 dark:text-amber-400" />
                                     </div>
-                                    <h3 className="font-medium text-gray-700">Pickup Location</h3>
+                                    <h3 className="font-medium text-gray-700 dark:text-amber-100">Pickup Location</h3>
                                 </div>
-                                <p className="text-lg text-gray-800">{location}</p>
+                                <p className="text-lg text-gray-800 dark:text-amber-100">{location}</p>
                             </div>
 
                             {notes && (
                                 <motion.div
                                     variants={itemVariants}
-                                    className="bg-amber-50 p-4 rounded-xl border-l-4 border-amber-400"
+                                    className="bg-amber-50 dark:bg-stone-700 p-4 rounded-xl border-l-4 border-amber-400 dark:border-amber-500"
                                 >
                                     <div className="flex items-start">
-                                        <FaInfoCircle className="text-amber-500 mt-1 mr-3 flex-shrink-0" />
+                                        <FaInfoCircle className="text-amber-500 dark:text-amber-400 mt-1 mr-3 flex-shrink-0" />
                                         <div>
-                                            <h3 className="font-medium text-gray-700 mb-1">Special Notes</h3>
-                                            <p className="text-gray-700">{notes}</p>
+                                            <h3 className="font-medium text-gray-700 dark:text-amber-100 mb-1">Special Notes</h3>
+                                            <p className="text-gray-700 dark:text-amber-200">{notes}</p>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -237,8 +237,8 @@ const SingleFood = () => {
                                 whileHover={foodStatus === 'available' ? "hover" : {}}
                                 whileTap={foodStatus === 'available' ? "tap" : {}}
                                 className={`w-full py-4 px-6 rounded-xl font-medium text-white text-lg ${foodStatus === 'available'
-                                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 shadow-lg'
-                                    : 'bg-gray-400 cursor-not-allowed'
+                                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-600 dark:to-orange-600 shadow-lg'
+                                    : 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed'
                                     }`}
                             >
                                 {foodStatus === 'available' ? (
@@ -253,23 +253,21 @@ const SingleFood = () => {
                         </motion.div>
                     </motion.div>
                 </motion.div>
-
-
             </motion.div>
 
             {/* Request modal */}
             <dialog id="request_modal" className="modal">
-                <div className="modal-box w-11/12 max-w-3xl max-h-screen overflow-y-auto rounded-2xl overflow-hidden p-8 lg:p-2">
+                <div className="modal-box w-11/12 max-w-3xl max-h-screen overflow-y-auto rounded-2xl overflow-hidden p-8 lg:p-2 dark:bg-stone-800">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-gradient-to-r from-amber-500 to-orange-500 p-6 rounded-xl text-white"
+                        className="bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-600 dark:to-orange-700 p-6 rounded-xl text-white"
                     >
                         <h3 className="font-bold text-2xl flex items-center">
                             <GiMeal className="mr-3" />
                             Food Request Form
                         </h3>
-                        <p className="text-amber-100">Complete the form to request "{name}"</p>
+                        <p className="text-amber-100 dark:text-amber-200">Complete the form to request "{name}"</p>
                     </motion.div>
 
                     <form onSubmit={handleRequest} className="p-6">
@@ -287,7 +285,7 @@ const SingleFood = () => {
                                         alt={name}
                                         className="h-32 w-32 object-cover rounded-xl shadow-md"
                                     />
-                                    <div className="absolute -bottom-2 -right-2 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                                    <div className="absolute -bottom-2 -right-2 bg-amber-500 dark:bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
                                         {quantity} left
                                     </div>
                                 </div>
@@ -296,8 +294,8 @@ const SingleFood = () => {
                             <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="label">
-                                        <span className="label-text font-medium flex items-center text-gray-700">
-                                            <IoFastFood className="mr-2 text-amber-600" />
+                                        <span className="label-text font-medium flex items-center text-gray-700 dark:text-amber-100">
+                                            <IoFastFood className="mr-2 text-amber-600 dark:text-amber-400" />
                                             Food Name
                                         </span>
                                     </label>
@@ -306,14 +304,14 @@ const SingleFood = () => {
                                         name="foodName"
                                         defaultValue={name}
                                         readOnly
-                                        className="input input-bordered w-full bg-gray-50 focus:border-amber-400 focus:ring-1 focus:ring-amber-200"
+                                        className="input input-bordered w-full bg-gray-50 dark:bg-stone-700 focus:border-amber-400 focus:ring-1 focus:ring-amber-200 dark:focus:ring-amber-500/30"
                                     />
                                 </div>
 
                                 <div>
                                     <label className="label">
-                                        <span className="label-text font-medium flex items-center text-gray-700">
-                                            <FaUser className="mr-2 text-amber-600" />
+                                        <span className="label-text font-medium flex items-center text-gray-700 dark:text-amber-100">
+                                            <FaUser className="mr-2 text-amber-600 dark:text-amber-400" />
                                             Donor Name
                                         </span>
                                     </label>
@@ -322,7 +320,7 @@ const SingleFood = () => {
                                         name="donorName"
                                         defaultValue={donorName}
                                         readOnly
-                                        className="input input-bordered w-full bg-gray-50 focus:border-amber-400 focus:ring-1 focus:ring-amber-200"
+                                        className="input input-bordered w-full bg-gray-50 dark:bg-stone-700 focus:border-amber-400 focus:ring-1 focus:ring-amber-200 dark:focus:ring-amber-500/30"
                                     />
                                 </div>
                             </motion.div>
@@ -330,8 +328,8 @@ const SingleFood = () => {
                             <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="label">
-                                        <span className="label-text font-medium flex items-center text-gray-700">
-                                            <FaMapMarkerAlt className="mr-2 text-amber-600" />
+                                        <span className="label-text font-medium flex items-center text-gray-700 dark:text-amber-100">
+                                            <FaMapMarkerAlt className="mr-2 text-amber-600 dark:text-amber-400" />
                                             Pickup Location
                                         </span>
                                     </label>
@@ -340,14 +338,14 @@ const SingleFood = () => {
                                         name="pickupLocation"
                                         defaultValue={location}
                                         readOnly
-                                        className="input input-bordered w-full bg-gray-50 focus:border-amber-400 focus:ring-1 focus:ring-amber-200"
+                                        className="input input-bordered w-full bg-gray-50 dark:bg-stone-700 focus:border-amber-400 focus:ring-1 focus:ring-amber-200 dark:focus:ring-amber-500/30"
                                     />
                                 </div>
 
                                 <div>
                                     <label className="label">
-                                        <span className="label-text font-medium flex items-center text-gray-700">
-                                            <FaClock className="mr-2 text-amber-600" />
+                                        <span className="label-text font-medium flex items-center text-gray-700 dark:text-amber-100">
+                                            <FaClock className="mr-2 text-amber-600 dark:text-amber-400" />
                                             Expiry Date
                                         </span>
                                     </label>
@@ -356,15 +354,15 @@ const SingleFood = () => {
                                         name="expireDate"
                                         defaultValue={new Date(dateTime).toLocaleDateString()}
                                         readOnly
-                                        className="input input-bordered w-full bg-gray-50 focus:border-amber-400 focus:ring-1 focus:ring-amber-200"
+                                        className="input input-bordered w-full bg-gray-50 dark:bg-stone-700 focus:border-amber-400 focus:ring-1 focus:ring-amber-200 dark:focus:ring-amber-500/30"
                                     />
                                 </div>
                             </motion.div>
 
                             <motion.div variants={itemVariants}>
                                 <label className="label">
-                                    <span className="label-text font-medium flex items-center text-gray-700">
-                                        <FaInfoCircle className="mr-2 text-amber-600" />
+                                    <span className="label-text font-medium flex items-center text-gray-700 dark:text-amber-100">
+                                        <FaInfoCircle className="mr-2 text-amber-600 dark:text-amber-400" />
                                         Additional Notes
                                     </span>
                                 </label>
@@ -372,7 +370,7 @@ const SingleFood = () => {
                                     name="additionalNotes"
                                     value={additionalNotes}
                                     onChange={(e) => setAdditionalNotes(e.target.value)}
-                                    className="textarea textarea-bordered w-full focus:border-amber-400 focus:ring-1 focus:ring-amber-200"
+                                    className="textarea textarea-bordered w-full focus:border-amber-400 focus:ring-1 focus:ring-amber-200 dark:bg-stone-700 dark:focus:ring-amber-500/30 dark:text-amber-100"
                                     placeholder="Any special requests or pickup instructions"
                                     rows="3"
                                 />
@@ -384,7 +382,7 @@ const SingleFood = () => {
                             >
                                 <motion.button
                                     type="button"
-                                    className="btn btn-ghost border border-gray-300 hover:bg-gray-100"
+                                    className="btn btn-ghost border border-gray-300 dark:border-stone-600 hover:bg-gray-100 dark:hover:bg-stone-700"
                                     onClick={() => document.getElementById('request_modal').close()}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
@@ -393,7 +391,7 @@ const SingleFood = () => {
                                 </motion.button>
                                 <motion.button
                                     type="submit"
-                                    className="btn bg-gradient-to-r from-amber-500 to-orange-500 border-none text-white hover:from-amber-600 hover:to-orange-600"
+                                    className="btn bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-600 dark:to-orange-700 border-none text-white hover:from-amber-600 hover:to-orange-600 dark:hover:from-amber-700 dark:hover:to-orange-800"
                                     variants={buttonVariants}
                                     whileHover="hover"
                                     whileTap="tap"
@@ -409,7 +407,6 @@ const SingleFood = () => {
                     <button>close</button>
                 </form>
             </dialog>
-
         </motion.div>
     );
 };

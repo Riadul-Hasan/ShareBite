@@ -14,7 +14,7 @@ const AvailableFoodCard = ({ food }) => {
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-amber-200"
+      className="card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-amber-200 dark:bg-stone-800 dark:border-stone-700 dark:hover:border-amber-500 dark:hover:shadow-stone-700"
     >
       {/* Image with hover zoom effect */}
       <motion.figure
@@ -34,7 +34,7 @@ const AvailableFoodCard = ({ food }) => {
 
         {/* Food name */}
         <motion.h2
-          className="absolute bottom-4 left-4 text-xl font-bold text-white"
+          className="absolute bottom-4 left-4 text-xl font-bold text-white dark:text-amber-100"
           whileHover={{ x: 5 }}
         >
           {name}
@@ -42,7 +42,7 @@ const AvailableFoodCard = ({ food }) => {
 
         {/* Quantity badge */}
         <motion.div
-          className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold px-3 py-1 rounded-full text-xs shadow-lg"
+          className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold px-3 py-1 rounded-full text-xs shadow-lg dark:from-amber-600 dark:to-amber-700"
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
@@ -54,16 +54,16 @@ const AvailableFoodCard = ({ food }) => {
       <div className="p-5 space-y-4">
         {/* Location */}
         <motion.div
-          className="flex items-center text-sm text-gray-600"
+          className="flex items-center text-sm text-gray-600 dark:text-amber-200"
           whileHover={{ x: 3 }}
         >
-          <FaLocationDot className="text-amber-500 mr-2 text-base" />
+          <FaLocationDot className="text-amber-500 mr-2 text-base dark:text-amber-400" />
           <span className="truncate">{location}</span>
         </motion.div>
 
         {/* Expiration */}
         <motion.div
-          className="flex items-center text-sm text-gray-600"
+          className="flex items-center text-sm text-gray-600 dark:text-amber-200"
           whileHover={{ x: 3 }}
         >
           <FcExpired className="mr-2 text-base" />
@@ -73,13 +73,13 @@ const AvailableFoodCard = ({ food }) => {
         {/* Notes */}
         {notes && (
           <motion.div
-            className="text-sm text-gray-700"
+            className="text-sm text-gray-700 dark:text-amber-200"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
             <div className='flex gap-2 items-start'>
-              <TbFileDescription className="text-amber-500 mt-0.5 flex-shrink-0" />
+              <TbFileDescription className="text-amber-500 mt-0.5 flex-shrink-0 dark:text-amber-400" />
               <span className="line-clamp-2">{notes}</span>
             </div>
           </motion.div>
@@ -92,7 +92,7 @@ const AvailableFoodCard = ({ food }) => {
         >
           <Link to={`/singleFood/${_id}`}>
             <motion.button
-              className="btn rounded-full px-6 bg-gradient-to-r from-amber-500 to-amber-600 border-none text-white shadow-md hover:shadow-lg"
+              className="btn rounded-full px-6 bg-gradient-to-r from-amber-500 to-amber-600 border-none text-white shadow-md hover:shadow-lg dark:from-amber-600 dark:to-amber-700 dark:hover:shadow-amber-800"
               whileHover={{
                 scale: 1.05,
                 background: "linear-gradient(to right, #f59e0b, #d97706)"
