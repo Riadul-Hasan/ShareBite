@@ -28,7 +28,7 @@ const ThemeToggle = () => {
         checked={theme === "dark"}
         onChange={handleThemeChange}
       />
-      ;
+
     </div>
   );
 };
