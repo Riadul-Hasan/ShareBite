@@ -15,11 +15,10 @@ const Home = () => {
     return (
         <div>
             <HeroSection></HeroSection>
-            <div className='bg-gradient-to-b from-orange-50 to-white'>
+            <div className='bg-gradient-to-b from-orange-50 to-white dark:from-stone-900 dark:to-stone-800'>
                 <div className='container mx-auto py-20'>
                     <FeaturedFoods foodPromise={foodPromise}></FeaturedFoods>
                 </div>
-
             </div>
             <BlogSection></BlogSection>
             <PromotionalSection></PromotionalSection>

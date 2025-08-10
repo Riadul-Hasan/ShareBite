@@ -75,7 +75,7 @@ const FeatureCard = ({
 
     return (
         <motion.div
-            className="relative bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full"
+            className="relative bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full dark:bg-stone-800 dark:border-stone-700"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
@@ -96,7 +96,7 @@ const FeatureCard = ({
 
                 {/* Food name overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end p-4">
-                    <h2 className="text-xl font-bold text-white">{foodName}</h2>
+                    <h2 className="text-xl font-bold text-white dark:text-amber-100">{foodName}</h2>
                 </div>
             </motion.div>
 
@@ -104,15 +104,14 @@ const FeatureCard = ({
             <div className="p-4 flex flex-col flex-grow">
                 <div className="mb-4 space-y-3">
                     <div className="flex items-start">
-
                         <div className="ml-2">
-                            <p className="text-sm font-medium text-gray-900">{donorName}</p>
-                            <p className="text-xs text-gray-500">{pickupLocation}</p>
+                            <p className="text-sm font-medium text-gray-900 dark:text-amber-100">{donorName}</p>
+                            <p className="text-xs text-gray-500 dark:text-amber-200">{pickupLocation}</p>
                         </div>
                     </div>
 
-                    <div className="flex items-center text-sm text-gray-600">
-                        <svg className="w-4 h-4 mr-1 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex items-center text-sm text-gray-600 dark:text-amber-200">
+                        <svg className="w-4 h-4 mr-1 text-amber-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>Expires: {formatExpiration(expiredDateTime)}</span>
@@ -120,22 +119,24 @@ const FeatureCard = ({
 
                     {additionalNotes && (
                         <div className="pt-1">
-                            <p className="text-sm text-gray-500 line-clamp-2">
-                                <span className="font-medium text-gray-700">Notes:</span> {additionalNotes}
+                            <p className="text-sm text-gray-500 line-clamp-2 dark:text-amber-300">
+                                <span className="font-medium text-gray-700 dark:text-amber-100">Notes:</span> {additionalNotes}
                             </p>
                         </div>
                     )}
                 </div>
 
                 <div className="mt-auto flex justify-between items-center">
-                    <div className={`text-xs font-semibold px-2 py-1 rounded-full ${foodStatus === 'available' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                    <div className={`text-xs font-semibold px-2 py-1 rounded-full ${foodStatus === 'available'
+                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
+                            : 'bg-gray-100 text-gray-800 dark:bg-stone-700 dark:text-amber-200'
                         }`}>
                         {quantity} {quantity === 1 ? 'item' : 'items'} {foodStatus}
                     </div>
 
                     <Link to={`/featureFoods/${_id}`} className="ml-auto">
                         <motion.button
-                            className="px-4 py-2 rounded-lg font-medium text-white text-sm"
+                            className="px-4 py-2 rounded-lg font-medium text-white text-sm bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-600 dark:to-amber-700"
                             variants={buttonVariants}
                             initial="rest"
                             whileHover="hover"
