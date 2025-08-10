@@ -37,24 +37,24 @@ const AddFood = () => {
     });
   };
   return (
-    <div className='bg-gradient-to-br from-red-50 via-amber-50 to-orange-50 dark:from-gray-800 dark:via-gray-900 dark:to-black py-16'>
+    <div className='bg-gradient-to-br from-red-50 via-amber-50 to-orange-50 dark:from-stone-900 dark:to-stone-800 py-16'>
       <title>Add Food</title>
-      <div className="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">Add Food for Sharing</h2>
+      <div className="max-w-2xl mx-auto p-6 bg-white dark:bg-stone-800 rounded-xl shadow-md border border-gray-100 dark:border-stone-700">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-orange-100 mb-6">Add Food for Sharing</h2>
 
         {/* Donor Info Section */}
-        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6">
-          <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-3">My Information</h3>
+        <div className="bg-gray-100 dark:bg-stone-700 p-4 rounded-lg mb-6">
+          <h3 className="font-medium text-gray-700 dark:text-orange-200 mb-3">My Information</h3>
           <div className="flex items-center space-x-4">
             <img
               src={user?.photoURL}
               referrerPolicy='no-referer'
               alt="User"
-              className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+              className="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-stone-600 shadow-sm"
             />
             <div>
-              <p className="font-medium text-gray-900 dark:text-gray-100">{user?.displayName}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{user?.email}</p>
+              <p className="font-medium text-gray-900 dark:text-orange-100">{user?.displayName}</p>
+              <p className="text-sm text-gray-600 dark:text-orange-300">{user?.email}</p>
             </div>
           </div>
         </div>
@@ -64,28 +64,28 @@ const AddFood = () => {
           <div className="space-y-4">
             {/* Food Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                 Food Name *
               </label>
               <input
                 type="text"
                 name='name'
                 required
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
                 placeholder="e.g., Fresh Apple Pie"
               />
             </div>
 
             {/* Food Image URL */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                 Food Image URL *
               </label>
               <input
                 type="url"
                 name='foodUrl'
                 required
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
                 placeholder="https://example.com/food-image.jpg"
               />
             </div>
@@ -93,45 +93,45 @@ const AddFood = () => {
             {/* Quantity and Expiry Date */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                   Quantity *
                 </label>
                 <input
                   type="number"
                   min="1"
                   name='quantity'
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
                   placeholder="e.g., 5"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                   Expiry Date/Time *
                 </label>
                 <input
                   type="datetime-local"
                   name='dateTime'
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100"
                 />
               </div>
             </div>
 
             {/* Pickup Location */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                 Pickup Location *
               </label>
               <input
                 type="text"
                 name='location'
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
                 placeholder="e.g., 123 Main St, City"
               />
             </div>
 
             {/* Donor image */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                 Donor Image *
               </label>
               <input
@@ -139,13 +139,13 @@ const AddFood = () => {
                 name='donorImage'
                 value={user?.photoURL}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
               />
             </div>
 
             {/* Donor name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                 Donor Name *
               </label>
               <input
@@ -153,13 +153,13 @@ const AddFood = () => {
                 name='donorName'
                 value={user?.displayName}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
               />
             </div>
 
             {/* Donor email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                 Donor email *
               </label>
               <input
@@ -167,13 +167,13 @@ const AddFood = () => {
                 name='email'
                 value={user?.email}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
               />
             </div>
 
             {/* Food status */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                 Food Status
               </label>
               <input
@@ -181,19 +181,19 @@ const AddFood = () => {
                 name='foodStatus'
                 value={"available"}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
               />
             </div>
 
             {/* Additional Notes */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-orange-200 mb-1">
                 Additional Notes
               </label>
               <textarea
                 rows="3"
                 name='notes'
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition bg-white dark:bg-stone-800 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-400"
                 placeholder="Any special instructions or details about the food"
               ></textarea>
             </div>
@@ -203,7 +203,7 @@ const AddFood = () => {
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-colors shadow-md active:scale-[0.98]"
+              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-colors shadow-md active:scale-[0.98] dark:from-orange-600 dark:to-amber-600"
             >
               Add Food
             </button>

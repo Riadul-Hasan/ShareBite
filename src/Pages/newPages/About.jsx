@@ -56,16 +56,14 @@ const About = () => {
     ];
 
     return (
-        <div className="bg-orange-50 dark:bg-gray-900">
+        <div className="bg-orange-50 dark:bg-stone-900">
             {/* Hero Section */}
-            <ThemeToggle />
-
             <motion.section
-                className="relative py-32 px-4 text-center bg-gray-900 text-white dark:bg-gray-900 dark:text-white"
+                className="relative py-32 px-4 text-center bg-gray-900 text-white dark:bg-stone-950"
                 style={{
                     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${heroImage})`,
                     backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundPosition: 'center'
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -73,7 +71,7 @@ const About = () => {
             >
                 <div className="max-w-4xl mx-auto">
                     <motion.h1
-                        className="text-4xl md:text-5xl font-bold mb-6 dark:text-white"
+                        className="text-4xl md:text-5xl font-bold mb-6 dark:text-amber-100"
                         initial={{ y: -30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
@@ -81,7 +79,7 @@ const About = () => {
                         Our Story
                     </motion.h1>
                     <motion.p
-                        className="text-xl md:text-2xl mb-8 dark:text-gray-300"
+                        className="text-xl md:text-2xl mb-8 dark:text-amber-200"
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.4 }}
@@ -89,7 +87,7 @@ const About = () => {
                         Connecting communities through the power of food sharing
                     </motion.p>
                     <motion.button
-                        className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg dark:hover:bg-orange-400"
+                        className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg dark:bg-amber-600 dark:hover:bg-amber-700"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -100,14 +98,14 @@ const About = () => {
 
             {/* Mission Section */}
             <motion.section
-                className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto dark:bg-gray-800"
+                className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto dark:bg-stone-900"
                 ref={ref}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
                 variants={containerVariants}
             >
                 <motion.div className="grid md:grid-cols-2 gap-12 items-center" variants={itemVariants}>
-                    <motion.div className="rounded-xl overflow-hidden shadow-xl" whileHover={{ scale: 1.02 }}>
+                    <motion.div className="rounded-xl overflow-hidden shadow-xl dark:shadow-stone-800" whileHover={{ scale: 1.02 }}>
                         <img
                             src={missionImage}
                             alt="Our mission"
@@ -116,61 +114,44 @@ const About = () => {
                         />
                     </motion.div>
                     <motion.div variants={itemVariants}>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-white">Our Mission</h2>
-                        <p className="text-gray-600 mb-6 text-lg dark:text-gray-300">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-amber-100">Our Mission</h2>
+                        <p className="text-gray-600 mb-6 text-lg dark:text-amber-200">
                             We're on a mission to reduce food waste by connecting surplus food with people who need it.
                             Our platform makes food sharing simple, safe, and rewarding for everyone involved.
                         </p>
                         <div className="space-y-4">
-                            {[...Array(3)].map((_, i) => null)}{/* replaced below with actual motion.divs */}
-                            <motion.div className="flex items-start" whileHover={{ x: 5 }}>
-                                <div className="bg-orange-100 p-2 rounded-full mr-4 dark:bg-orange-800">
-                                    <svg
-                                        className="w-6 h-6 text-orange-500 dark:text-orange-300"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
+                            <motion.div
+                                className="flex items-start"
+                                whileHover={{ x: 5 }}
+                            >
+                                <div className="bg-orange-100 p-2 rounded-full mr-4 dark:bg-stone-700">
+                                    <svg className="w-6 h-6 text-orange-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <p className="text-gray-700 dark:text-gray-300">Reduce food waste in local communities</p>
+                                <p className="text-gray-700 dark:text-amber-200">Reduce food waste in local communities</p>
                             </motion.div>
-                            <motion.div className="flex items-start" whileHover={{ x: 5 }}>
-                                <div className="bg-orange-100 p-2 rounded-full mr-4 dark:bg-orange-800">
-                                    <svg
-                                        className="w-6 h-6 text-orange-500 dark:text-orange-300"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                                        />
+                            <motion.div
+                                className="flex items-start"
+                                whileHover={{ x: 5 }}
+                            >
+                                <div className="bg-orange-100 p-2 rounded-full mr-4 dark:bg-stone-700">
+                                    <svg className="w-6 h-6 text-orange-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                     </svg>
                                 </div>
-                                <p className="text-gray-700 dark:text-gray-300">Build connections between neighbors</p>
+                                <p className="text-gray-700 dark:text-amber-200">Build connections between neighbors</p>
                             </motion.div>
-                            <motion.div className="flex items-start" whileHover={{ x: 5 }}>
-                                <div className="bg-orange-100 p-2 rounded-full mr-4 dark:bg-orange-800">
-                                    <svg
-                                        className="w-6 h-6 text-orange-500 dark:text-orange-300"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                                        />
+                            <motion.div
+                                className="flex items-start"
+                                whileHover={{ x: 5 }}
+                            >
+                                <div className="bg-orange-100 p-2 rounded-full mr-4 dark:bg-stone-700">
+                                    <svg className="w-6 h-6 text-orange-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                     </svg>
                                 </div>
-                                <p className="text-gray-700 dark:text-gray-300">Ensure food safety and quality standards</p>
+                                <p className="text-gray-700 dark:text-amber-200">Ensure food safety and quality standards</p>
                             </motion.div>
                         </div>
                     </motion.div>
@@ -179,7 +160,7 @@ const About = () => {
 
             {/* Stats Section */}
             <motion.section
-                className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900"
+                className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-stone-900"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
@@ -193,8 +174,8 @@ const About = () => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-white">Our Impact</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-amber-100">Our Impact</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto dark:text-amber-200">
                             Numbers that tell the story of our growing community
                         </p>
                     </motion.div>
@@ -202,18 +183,22 @@ const About = () => {
                         {stats.map((stat, index) => (
                             <motion.div
                                 key={index}
-                                className="bg-orange-50 rounded-xl p-8 text-center shadow-sm hover:shadow-md transition-shadow dark:bg-gray-800"
+                                className="bg-orange-50 rounded-xl p-8 text-center shadow-sm hover:shadow-md transition-shadow dark:bg-stone-800 dark:hover:shadow-stone-700"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 whileHover={{ y: -5 }}
                                 viewport={{ once: true }}
                             >
-                                <p className="text-5xl font-bold text-orange-600 mb-2 dark:text-orange-400">
-                                    <CountUp end={stat.value} duration={2.5} separator="," />
+                                <p className="text-5xl font-bold text-orange-600 mb-2 dark:text-amber-400">
+                                    <CountUp
+                                        end={stat.value}
+                                        duration={2.5}
+                                        separator=","
+                                    />
                                     {stat.value >= 1000 && '+'}
                                 </p>
-                                <p className="text-gray-600 font-medium dark:text-gray-300">{stat.label}</p>
+                                <p className="text-gray-600 font-medium dark:text-amber-200">{stat.label}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -222,7 +207,7 @@ const About = () => {
 
             {/* Team Section */}
             <motion.section
-                className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800"
+                className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-stone-900"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
@@ -235,8 +220,8 @@ const About = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-white">Meet The Team</h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-amber-100">Meet The Team</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto dark:text-amber-200">
                         The passionate people behind our food sharing community
                     </p>
                 </motion.div>
@@ -244,7 +229,7 @@ const About = () => {
                     {teamMembers.map((member, index) => (
                         <motion.div
                             key={index}
-                            className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow dark:bg-gray-700"
+                            className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow dark:bg-stone-800 dark:hover:shadow-stone-700"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
@@ -260,15 +245,14 @@ const About = () => {
                                 />
                             </div>
                             <div className="p-6 text-center">
-                                <h3 className="text-xl font-semibold text-gray-900 mb-1 dark:text-white">{member.name}</h3>
-                                <p className="text-orange-500 font-medium dark:text-orange-400">{member.role}</p>
+                                <h3 className="text-xl font-semibold text-gray-900 mb-1 dark:text-amber-100">{member.name}</h3>
+                                <p className="text-orange-500 font-medium dark:text-amber-400">{member.role}</p>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </motion.section>
         </div>
-
     );
 };
 

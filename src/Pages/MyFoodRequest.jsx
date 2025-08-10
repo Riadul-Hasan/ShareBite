@@ -115,7 +115,7 @@ const MyFoodRequest = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-[calc(100vh-250px)] bg-gradient-to-b from-amber-50 to-stone-50 py-12 px-4 sm:px-6 lg:px-8"
+      className="min-h-[calc(100vh-250px)] bg-gradient-to-b from-amber-50 to-stone-50 dark:from-stone-900 dark:to-stone-800 py-12 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
@@ -125,88 +125,76 @@ const MyFoodRequest = () => {
           transition={{ delay: 0.2 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center justify-center bg-gradient-to-r from-amber-400 to-orange-500 text-white p-3 rounded-full shadow-lg mb-4">
+          <div className="inline-flex items-center justify-center bg-gradient-to-r from-amber-400 to-orange-500 dark:from-amber-600 dark:to-orange-700 text-white p-3 rounded-full shadow-lg mb-4">
             <MdOutlineFoodBank className="text-3xl" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">My Food Requests</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-amber-100 mb-3">My Food Requests</h1>
+          <p className="text-lg text-gray-600 dark:text-amber-200 max-w-2xl mx-auto">
             Track all your food sharing requests in one place
           </p>
         </motion.div>
 
-        {/* Stats Cards */}
+        {/* Stats Cards - Dark Mode Enhanced */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
         >
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
-          >
-            <div className="flex items-center">
-              <div className="bg-amber-100 p-3 rounded-full mr-4">
-                <IoFastFood className="text-amber-600 text-xl" />
+          {[
+            {
+              icon: <IoFastFood className="text-amber-600 dark:text-amber-300 text-xl" />,
+              bg: "bg-amber-100 dark:bg-stone-700",
+              label: "Total Requests",
+              value: myRequest?.length || 0
+            },
+            {
+              icon: <GiCook className="text-green-600 dark:text-green-300 text-xl" />,
+              bg: "bg-green-100 dark:bg-stone-700",
+              label: "Active Requests",
+              value: myRequest?.filter(r => new Date(r.expireDate) >= new Date()).length || 0
+            },
+            {
+              icon: <IoTimeOutline className="text-red-600 dark:text-red-300 text-xl" />,
+              bg: "bg-red-100 dark:bg-stone-700",
+              label: "Expired Requests",
+              value: myRequest?.filter(r => new Date(r.expireDate) < new Date()).length || 0
+            }
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ y: -5 }}
+              className="bg-white dark:bg-stone-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-stone-700 transition-colors duration-300"
+            >
+              <div className="flex items-center">
+                <div className={`${stat.bg} p-3 rounded-full mr-4`}>
+                  {stat.icon}
+                </div>
+                <div>
+                  <p className="text-gray-500 dark:text-stone-400 text-sm">{stat.label}</p>
+                  <p className="text-2xl font-bold text-gray-800 dark:text-amber-100">
+                    {stat.value}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-gray-500 text-sm">Total Requests</p>
-                <p className="text-2xl font-bold text-gray-800">
-                  {myRequest?.length || 0}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
-          >
-            <div className="flex items-center">
-              <div className="bg-green-100 p-3 rounded-full mr-4">
-                <GiCook className="text-green-600 text-xl" />
-              </div>
-              <div>
-                <p className="text-gray-500 text-sm">Active Requests</p>
-                <p className="text-2xl font-bold text-gray-800">
-                  {myRequest?.filter(r => new Date(r.expireDate) >= new Date()).length || 0}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
-          >
-            <div className="flex items-center">
-              <div className="bg-red-100 p-3 rounded-full mr-4">
-                <IoTimeOutline className="text-red-600 text-xl" />
-              </div>
-              <div>
-                <p className="text-gray-500 text-sm">Expired Requests</p>
-                <p className="text-2xl font-bold text-gray-800">
-                  {myRequest?.filter(r => new Date(r.expireDate) < new Date()).length || 0}
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </motion.div>
 
-        {/* Tabs */}
+        {/* Tabs - Dark Mode Styling */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="flex space-x-2 mb-8 border-b border-gray-200"
+          className="flex space-x-2 mb-8 border-b border-gray-200 dark:border-stone-700"
         >
           {['all', 'active', 'expired'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors ${activeTab === tab
-                ? 'bg-amber-500 text-white'
-                : 'text-gray-500 hover:text-amber-600 hover:bg-amber-50'
+                  ? 'bg-amber-500 dark:bg-amber-600 text-white'
+                  : 'text-gray-500 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-stone-700'
                 }`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -214,26 +202,26 @@ const MyFoodRequest = () => {
           ))}
         </motion.div>
 
-        {/* Main Content */}
+        {/* Empty State - Dark Mode */}
         {!filteredRequests || filteredRequests.length === 0 ? (
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="text-center p-12 bg-white rounded-xl shadow-lg max-w-md mx-auto"
+            className="text-center p-12 bg-white dark:bg-stone-800 rounded-xl shadow-lg max-w-md mx-auto border border-gray-100 dark:border-stone-700"
           >
-            <div className="bg-amber-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <FaUtensils className="text-amber-600 text-3xl" />
+            <div className="bg-amber-100 dark:bg-stone-700 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <FaUtensils className="text-amber-600 dark:text-amber-400 text-3xl" />
             </div>
-            <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+            <h3 className="text-2xl font-semibold text-gray-700 dark:text-amber-100 mb-2">
               {activeTab === 'all'
                 ? 'No Requests Yet'
                 : activeTab === 'active'
                   ? 'No Active Requests'
                   : 'No Expired Requests'}
             </h3>
-            <p className="text-gray-500 mb-6">
+            <p className="text-gray-500 dark:text-amber-200 mb-6">
               {activeTab === 'all'
-                ? 'You haven\'t made any food requests yet.'
+                ? "You haven't made any food requests yet."
                 : activeTab === 'active'
                   ? 'You currently have no active food requests.'
                   : 'All your requests are still active.'}
@@ -241,7 +229,7 @@ const MyFoodRequest = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-2 rounded-lg font-medium shadow-md"
+              className="bg-gradient-to-r from-amber-400 to-orange-500 dark:from-amber-600 dark:to-orange-700 text-white px-6 py-2 rounded-lg font-medium shadow-md"
             >
               Browse Available Food
             </motion.button>
@@ -251,11 +239,11 @@ const MyFoodRequest = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="bg-white rounded-xl shadow-lg overflow-hidden"
+            className="bg-white dark:bg-stone-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-stone-700"
           >
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gradient-to-r from-amber-500 to-orange-500">
+              <table className="min-w-full divide-y divide-gray-200 dark:divide-stone-700">
+                <thead className="bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-600 dark:to-orange-700">
                   <tr>
                     <th className="px-6 py-4 text-left text-sm font-medium text-white uppercase tracking-wider">Food Details</th>
                     <th className="px-6 py-4 text-left text-sm font-medium text-white uppercase tracking-wider">Donor Info</th>
@@ -263,7 +251,7 @@ const MyFoodRequest = () => {
                     <th className="px-6 py-4 text-left text-sm font-medium text-white uppercase tracking-wider">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white dark:bg-stone-800 divide-y divide-gray-200 dark:divide-stone-700">
                   <AnimatePresence>
                     {filteredRequests.map((request) => (
                       <motion.tr
@@ -272,8 +260,9 @@ const MyFoodRequest = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="hover:bg-amber-50 group"
+                        className="hover:bg-amber-50 dark:hover:bg-stone-700 transition-colors duration-200"
                       >
+                        {/* Table cells with dark mode styles */}
                         <td className="px-6 py-4">
                           <div className="flex items-center">
                             <motion.img
@@ -283,9 +272,9 @@ const MyFoodRequest = () => {
                               whileHover={{ scale: 1.05 }}
                             />
                             <div>
-                              <p className="font-medium text-gray-900">{request.foodName}</p>
-                              <div className="flex items-center text-sm text-gray-500 mt-1">
-                                <FaMapMarkerAlt className="mr-1 text-amber-600" />
+                              <p className="font-medium text-gray-900 dark:text-amber-100">{request.foodName}</p>
+                              <div className="flex items-center text-sm text-gray-500 dark:text-amber-300 mt-1">
+                                <FaMapMarkerAlt className="mr-1 text-amber-600 dark:text-amber-400" />
                                 <span>{request.pickupLocation}</span>
                               </div>
                             </div>
@@ -293,41 +282,40 @@ const MyFoodRequest = () => {
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex items-center">
-                            <div className="bg-amber-100 p-2 rounded-full mr-3">
-                              <FaUser className="text-amber-600" />
+                            <div className="bg-amber-100 dark:bg-stone-700 p-2 rounded-full mr-3">
+                              <FaUser className="text-amber-600 dark:text-amber-400" />
                             </div>
                             <div>
-                              <p className="font-medium text-gray-800">{request.donorName}</p>
-                              <p className="text-sm text-gray-500">{request.donorEmail}</p>
+                              <p className="font-medium text-gray-800 dark:text-amber-100">{request.donorName}</p>
+                              <p className="text-sm text-gray-500 dark:text-amber-300">{request.donorEmail}</p>
                             </div>
                           </div>
                         </td>
                         <td className="px-6 py-4">
                           <div className="space-y-2">
                             <div className="flex items-center text-sm">
-                              <div className="bg-green-100 p-1 rounded-full mr-2">
-                                <FaClock className="text-green-600 text-xs" />
+                              <div className="bg-green-100 dark:bg-stone-700 p-1 rounded-full mr-2">
+                                <FaClock className="text-green-600 dark:text-green-400 text-xs" />
                               </div>
-                              <span className="text-gray-600">
+                              <span className="text-gray-600 dark:text-amber-200">
                                 Requested: {new Date(request.requestDate).toLocaleDateString()}
                               </span>
                             </div>
-                            <div className="flex items-center text-sm">
+                            <div className={`flex items-center text-sm ${new Date(request.expireDate) < new Date()
+                                ? 'text-red-600 dark:text-red-400'
+                                : 'text-amber-600 dark:text-amber-400'
+                              }`}>
                               <div className={`p-1 rounded-full mr-2 ${new Date(request.expireDate) < new Date()
-                                ? 'bg-red-100'
-                                : 'bg-amber-100'
+                                  ? 'bg-red-100 dark:bg-stone-700'
+                                  : 'bg-amber-100 dark:bg-stone-700'
                                 }`}>
                                 <FaClock className={
                                   new Date(request.expireDate) < new Date()
-                                    ? 'text-red-600'
-                                    : 'text-amber-600'
+                                    ? 'text-red-600 dark:text-red-400'
+                                    : 'text-amber-600 dark:text-amber-400'
                                 } />
                               </div>
-                              <span className={
-                                new Date(request.expireDate) < new Date()
-                                  ? 'text-red-600'
-                                  : 'text-amber-600'
-                              }>
+                              <span>
                                 Expires: {new Date(request.expireDate).toLocaleDateString()}
                               </span>
                             </div>
@@ -335,12 +323,11 @@ const MyFoodRequest = () => {
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex space-x-3">
-
                             <motion.button
                               onClick={() => cancelRequest(request._id)}
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
-                              className="flex items-center text-red-600 hover:text-red-800 font-medium text-sm"
+                              className="flex items-center text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-500 font-medium text-sm transition-colors"
                             >
                               <FaTrash className="mr-1" /> Cancel
                             </motion.button>
@@ -355,16 +342,16 @@ const MyFoodRequest = () => {
           </motion.div>
         )}
 
-        {/* Additional Help Section */}
+        {/* Help Section - Dark Mode */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="mt-16 bg-gradient-to-r from-amber-100 to-orange-50 rounded-xl p-8 shadow-inner"
+          className="mt-16 bg-gradient-to-r from-amber-100 to-orange-50 dark:from-stone-800 dark:to-stone-700 rounded-xl p-8 shadow-inner border border-amber-200 dark:border-stone-600"
         >
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Need Help With Your Requests?</h3>
-            <p className="text-gray-600 mb-6">
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-4">Need Help With Your Requests?</h3>
+            <p className="text-gray-600 dark:text-amber-200 mb-6">
               If you have any questions about your food requests or need assistance,
               our support team is here to help you 24/7.
             </p>
@@ -372,16 +359,16 @@ const MyFoodRequest = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-amber-600 border border-amber-300 px-6 py-3 rounded-lg font-medium shadow-sm"
+                className="bg-gradient-to-r from-amber-400 to-orange-500 dark:from-amber-600 dark:to-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
               >
                 Contact Support
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-lg font-medium shadow-md"
+                className="bg-transparent border border-amber-500 dark:border-amber-400 text-amber-600 dark:text-amber-300 px-6 py-3 rounded-lg font-semibold hover:bg-amber-50 dark:hover:bg-stone-700 transition-colors"
               >
-                FAQ Center
+                Visit FAQ
               </motion.button>
             </div>
           </div>
