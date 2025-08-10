@@ -2,6 +2,9 @@ import React, { use } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import ThemeToggle from "../themeToggle/ThemeToggle";
+
+
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
@@ -350,7 +353,7 @@ const Navbar = () => {
 
       {/* CTA Button */}
       <div className="navbar-end">
-        {user && (
+        {/* {user && (
           <NavLink
             to="/signUp"
             className={({ isActive }) =>
@@ -362,7 +365,8 @@ const Navbar = () => {
           >
             <button onClick={handleLogout}>Logout</button>
           </NavLink>
-        )}
+        )} */}
+        <ThemeToggle></ThemeToggle>
       </div>
     </div>
   );

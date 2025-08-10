@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
+import ThemeToggle from '../../components/themeToggle/ThemeToggle';
 
 const About = () => {
     const [ref, inView] = useInView({
@@ -57,6 +58,7 @@ const About = () => {
     return (
         <div className="bg-orange-50">
             {/* Hero Section */}
+            <ThemeToggle></ThemeToggle>
             <motion.section
                 className="relative py-32 px-4 text-center bg-gray-900 text-white"
                 style={{
@@ -251,6 +253,7 @@ const About = () => {
                     ))}
                 </div>
             </motion.section>
+
 
         </div>
     );

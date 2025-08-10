@@ -15,11 +15,13 @@ import {
 const queryClient = new QueryClient()
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-     <RouterProvider router={router}></RouterProvider>
-   </AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
     </QueryClientProvider>
-   
+
+
   </StrictMode>,
 )
