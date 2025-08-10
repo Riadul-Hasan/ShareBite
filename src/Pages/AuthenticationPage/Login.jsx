@@ -75,7 +75,7 @@ const Login = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className='min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 flex flex-col items-center justify-center px-4 py-12'
+            className='min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-stone-900 dark:via-stone-800 dark:to-stone-700 flex flex-col items-center justify-center px-4 py-12'
         >
             <title>Login | Share Bite</title>
 
@@ -94,7 +94,7 @@ const Login = () => {
                             repeat: Infinity,
                             ease: "linear"
                         }}
-                        className="absolute text-2xl opacity-20"
+                        className="absolute text-2xl opacity-20 dark:opacity-10"
                         style={{
                             left: `${Math.random() * 100}%`,
                             top: '100%',
@@ -111,19 +111,19 @@ const Login = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="relative bg-white rounded-3xl shadow-xl w-full max-w-md overflow-hidden"
+                className="relative bg-white dark:bg-stone-800 rounded-3xl shadow-xl dark:shadow-stone-900/50 w-full max-w-md overflow-hidden"
             >
                 {/* Decorative elements */}
-                <div className="absolute -top-16 -right-16 w-32 h-32 bg-amber-200 rounded-full opacity-20"></div>
-                <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-purple-200 rounded-full opacity-20"></div>
+                <div className="absolute -top-16 -right-16 w-32 h-32 bg-amber-200 dark:bg-amber-800 rounded-full opacity-20 dark:opacity-10"></div>
+                <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-purple-200 dark:bg-purple-800 rounded-full opacity-20 dark:opacity-10"></div>
 
                 {/* Header */}
-                <div className="bg-gradient-to-r from-amber-400 to-orange-500 p-6 text-center">
+                <div className="bg-gradient-to-r from-amber-400 to-orange-500 dark:from-amber-600 dark:to-amber-700 p-6 text-center">
                     <motion.div
                         whileHover={{ scale: 1.1 }}
-                        className="inline-block bg-white p-3 rounded-full shadow-lg mb-2"
+                        className="inline-block bg-white dark:bg-stone-800 p-3 rounded-full shadow-lg mb-2"
                     >
-                        <GiForkKnifeSpoon className="text-amber-600 text-3xl" />
+                        <GiForkKnifeSpoon className="text-amber-600 dark:text-amber-400 text-3xl" />
                     </motion.div>
                     <motion.h2
                         className='text-3xl font-bold text-white'
@@ -134,7 +134,7 @@ const Login = () => {
                         Welcome Back
                     </motion.h2>
                     <motion.p
-                        className='text-amber-100 mt-2'
+                        className='text-amber-100 dark:text-amber-200 mt-2'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
@@ -158,16 +158,16 @@ const Login = () => {
                         transition={{ delay: 0.7 }}
                         className="space-y-2"
                     >
-                        <label className="block text-gray-700 font-medium">Email</label>
+                        <label className="block text-gray-700 dark:text-amber-100 font-medium">Email</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <FaEnvelope className="text-gray-400" />
+                                <FaEnvelope className="text-gray-400 dark:text-amber-300" />
                             </div>
                             <input
                                 required
                                 name='email'
                                 type="email"
-                                className="input pl-10 w-full rounded-lg border-gray-300 focus:border-amber-500 focus:ring-amber-500"
+                                className="input pl-10 w-full rounded-lg border-gray-300 dark:border-stone-600 focus:border-amber-500 dark:focus:border-amber-400 focus:ring-amber-500 dark:focus:ring-amber-400 dark:bg-stone-700 dark:text-amber-100"
                                 placeholder="your@email.com"
                             />
                         </div>
@@ -180,15 +180,15 @@ const Login = () => {
                         transition={{ delay: 0.8 }}
                         className="space-y-2"
                     >
-                        <label className="block text-gray-700 font-medium">Password</label>
+                        <label className="block text-gray-700 dark:text-amber-100 font-medium">Password</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <FaLock className="text-gray-400" />
+                                <FaLock className="text-gray-400 dark:text-amber-300" />
                             </div>
                             <input
                                 name='password'
                                 type="password"
-                                className="input pl-10 w-full rounded-lg border-gray-300 focus:border-amber-500 focus:ring-amber-500"
+                                className="input pl-10 w-full rounded-lg border-gray-300 dark:border-stone-600 focus:border-amber-500 dark:focus:border-amber-400 focus:ring-amber-500 dark:focus:ring-amber-400 dark:bg-stone-700 dark:text-amber-100"
                                 required
                                 placeholder="••••••••"
                             />
@@ -197,7 +197,7 @@ const Login = () => {
                             whileHover={{ x: 2 }}
                             className="text-right"
                         >
-                            <Link className="text-sm text-amber-600 hover:underline" to="/forget-password">
+                            <Link className="text-sm text-amber-600 dark:text-amber-400 hover:underline" to="/forget-password">
                                 Forgot password?
                             </Link>
                         </motion.div>
@@ -207,7 +207,7 @@ const Login = () => {
                         <motion.p
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className='text-red-500 text-sm font-medium'
+                            className='text-red-500 dark:text-red-400 text-sm font-medium'
                         >
                             {error}
                         </motion.p>
@@ -219,8 +219,8 @@ const Login = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         className={`w-full py-3 px-4 rounded-lg font-medium text-white shadow-md ${isLoading
-                            ? 'bg-gray-400 cursor-not-allowed'
-                            : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600'
+                            ? 'bg-gray-400 dark:bg-stone-600 cursor-not-allowed'
+                            : 'bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-600 dark:to-amber-700 hover:from-amber-600 hover:to-orange-600 dark:hover:from-amber-700 dark:hover:to-amber-800'
                             }`}
                     >
                         {isLoading ? (
@@ -246,10 +246,10 @@ const Login = () => {
                 >
                     <div className="relative">
                         <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t border-gray-300"></div>
+                            <div className="w-full border-t border-gray-300 dark:border-stone-600"></div>
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="px-2 bg-white text-gray-500">
+                            <span className="px-2 bg-white dark:bg-stone-800 text-gray-500 dark:text-amber-200">
                                 Or continue with
                             </span>
                         </div>
@@ -268,7 +268,7 @@ const Login = () => {
                         disabled={isLoading}
                         whileHover={{ y: -2, boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 shadow-sm"
+                        className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium text-gray-700 dark:text-amber-100 bg-white dark:bg-stone-700 border border-gray-200 dark:border-stone-600 hover:bg-gray-50 dark:hover:bg-stone-600 shadow-sm"
                     >
                         <FcGoogle className="text-xl" />
                         Sign in with Google
@@ -282,11 +282,11 @@ const Login = () => {
                     transition={{ delay: 1.1 }}
                     className="text-center pb-8"
                 >
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-amber-200">
                         Don't have an account?{' '}
                         <Link
                             to="/signUp"
-                            className="font-medium text-amber-600 hover:text-amber-700 hover:underline"
+                            className="font-medium text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 hover:underline"
                         >
                             Register
                         </Link>
