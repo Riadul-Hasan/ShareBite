@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CountUp from 'react-countup';
 import { motion } from 'framer-motion';
 
@@ -10,35 +10,35 @@ import { GoOrganization } from 'react-icons/go';
 const stats = [
     {
         id: 1,
-        icon: <BiSolidDonateBlood size={30} />,
+        icon: <BiSolidDonateBlood size={30} className="dark:text-amber-100" />,
         count: 300,
         label: "Donations Completed",
-        bg: "from-orange-400 to-orange-500",
-        text: "text-orange-500"
+        bg: "from-orange-400 to-orange-500 dark:from-amber-600 dark:to-amber-700",
+        text: "text-orange-500 dark:text-amber-400"
     },
     {
         id: 2,
-        icon: <FaPeopleCarry size={30} />,
+        icon: <FaPeopleCarry size={30} className="dark:text-amber-100" />,
         count: 6500,
         label: "People Reached",
-        bg: "from-amber-400 to-orange-400",
-        text: "text-amber-500"
+        bg: "from-amber-400 to-orange-400 dark:from-amber-500 dark:to-amber-600",
+        text: "text-amber-500 dark:text-amber-300"
     },
     {
         id: 3,
-        icon: <GoOrganization size={28} />,
+        icon: <GoOrganization size={28} className="dark:text-amber-100" />,
         count: 50,
         label: "Organizations",
-        bg: "from-lime-400 to-green-400",
-        text: "text-green-500"
+        bg: "from-lime-400 to-green-400 dark:from-green-500 dark:to-green-600",
+        text: "text-green-500 dark:text-green-400"
     },
     {
         id: 4,
         icon: <FcCustomerSupport size={32} />,
         count: 20000,
         label: "Positive Feedbacks",
-        bg: "from-gray-400 to-gray-500",
-        text: "text-gray-600"
+        bg: "from-gray-400 to-gray-500 dark:from-stone-600 dark:to-stone-700",
+        text: "text-gray-600 dark:text-stone-300"
     }
 ];
 
@@ -52,21 +52,30 @@ const cardVariants = {
     hover: {
         y: -8,
         scale: 1.03,
-        boxShadow: "0 20px 30px -10px rgba(251, 146, 60, 0.3)"
+        boxShadow: "0 20px 30px -10px rgba(251, 146, 60, 0.3)",
+        dark: {
+            boxShadow: "0 20px 30px -10px rgba(180, 83, 9, 0.4)"
+        }
     }
 };
 
 const Additional1 = () => {
+    // Apply theme class immediately on mount
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") || 'dark';
+        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    }, []);
+
     return (
-        <section className='max-w-7xl mx-auto px-4 py-12'>
-            <h2 className='text-center text-4xl font-bold text-orange-600 mb-10'>
+        <section className='max-w-7xl mx-auto px-4 py-12 dark:bg-stone-900'>
+            <h2 className='text-center text-4xl font-bold text-orange-600 mb-10 dark:text-amber-500'>
                 Our Valuable Impact
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {stats.map((item, index) => (
                     <motion.div
                         key={item.id}
-                        className="bg-white rounded-2xl border border-orange-100 shadow-sm p-6 flex flex-col items-center justify-center h-full cursor-pointer"
+                        className="bg-white rounded-2xl border border-orange-100 shadow-sm p-6 flex flex-col items-center justify-center h-full cursor-pointer dark:bg-stone-800 dark:border-stone-700"
                         variants={cardVariants}
                         initial="hidden"
                         animate="visible"
@@ -84,7 +93,7 @@ const Additional1 = () => {
                         <h3 className={`text-4xl font-bold ${item.text}`}>
                             <CountUp start={0} end={item.count} duration={4} separator="," />+
                         </h3>
-                        <p className="text-center text-base font-semibold text-gray-600 mt-2">
+                        <p className="text-center text-base font-semibold text-gray-600 mt-2 dark:text-amber-200">
                             {item.label}
                         </p>
                     </motion.div>

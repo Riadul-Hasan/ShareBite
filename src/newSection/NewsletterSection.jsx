@@ -12,10 +12,10 @@ const Newsletter = () => {
     };
 
     return (
-        <section className="py-20 px-4 bg-gradient-to-br from-orange-50 to-amber-50">
+        <section className="py-20 px-4 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-stone-900 dark:to-stone-800">
             <div className="max-w-4xl mx-auto">
                 <motion.div
-                    className="bg-white rounded-2xl shadow-xl overflow-hidden border border-orange-100"
+                    className="bg-white dark:bg-stone-800 rounded-2xl shadow-xl dark:shadow-stone-900/50 overflow-hidden border border-orange-100 dark:border-stone-700"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, type: 'spring' }}
@@ -24,7 +24,7 @@ const Newsletter = () => {
                     <div className="p-8 md:p-10 flex flex-col md:flex-row gap-8">
                         {/* Visual Element */}
                         <motion.div
-                            className="flex-1 flex flex-col items-center justify-center bg-gradient-to-br from-orange-400 to-amber-500 rounded-xl p-6"
+                            className="flex-1 flex flex-col items-center justify-center bg-gradient-to-br from-orange-400 to-amber-500 dark:from-orange-600 dark:to-amber-700 rounded-xl p-6"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}
@@ -45,7 +45,7 @@ const Newsletter = () => {
                                 </svg>
                             </motion.div>
                             <h3 className="text-2xl font-bold text-white text-center mb-2">Join Our Community</h3>
-                            <p className="text-orange-100 text-center">Get fresh updates delivered weekly</p>
+                            <p className="text-orange-100 dark:text-orange-200 text-center">Get fresh updates delivered weekly</p>
                         </motion.div>
 
                         {/* Form Area */}
@@ -56,8 +56,8 @@ const Newsletter = () => {
                                     whileInView={{ opacity: 1 }}
                                     transition={{ delay: 0.4 }}
                                 >
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Stay Updated</h3>
-                                    <p className="text-gray-600 mb-6">Subscribe for food sharing tips and community news.</p>
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-orange-100 mb-3">Stay Updated</h3>
+                                    <p className="text-gray-600 dark:text-orange-300 mb-6">Subscribe for food sharing tips and community news.</p>
 
                                     <form onSubmit={handleSubmit}>
                                         <div className="mb-5">
@@ -65,14 +65,14 @@ const Newsletter = () => {
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all"
+                                                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-stone-600 focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-600 focus:border-orange-500 dark:focus:border-orange-600 outline-none transition-all bg-white dark:bg-stone-700 text-gray-900 dark:text-orange-100 placeholder-gray-400 dark:placeholder-orange-300"
                                                 placeholder="Your email address"
                                                 required
                                             />
                                         </div>
                                         <motion.button
                                             type="submit"
-                                            className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 px-6 rounded-lg font-medium shadow-lg hover:shadow-orange-200 transition-all"
+                                            className="w-full bg-gradient-to-r from-orange-500 to-amber-500 dark:from-orange-600 dark:to-amber-700 text-white py-3 px-6 rounded-lg font-medium shadow-lg hover:shadow-orange-200 dark:hover:shadow-stone-700/50 transition-all"
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
                                         >
@@ -87,16 +87,16 @@ const Newsletter = () => {
                                     animate={{ scale: 1, opacity: 1 }}
                                     transition={{ type: "spring", stiffness: 400 }}
                                 >
-                                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                                        <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-4">
+                                        <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">You're Subscribed!</h3>
-                                    <p className="text-gray-600 mb-4">Thank you for joining our community.</p>
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-orange-100 mb-2">You're Subscribed!</h3>
+                                    <p className="text-gray-600 dark:text-orange-300 mb-4">Thank you for joining our community.</p>
                                     <motion.button
                                         onClick={() => setSubmitted(false)}
-                                        className="text-orange-500 font-medium text-sm"
+                                        className="text-orange-500 dark:text-orange-400 font-medium text-sm"
                                         whileHover={{ scale: 1.05 }}
                                     >
                                         Back to form

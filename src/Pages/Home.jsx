@@ -25,10 +25,9 @@ const Home = () => {
             <div>
                 <Additional2></Additional2>
             </div>
-            <div className='py-16'>
-
-                <Additional1></Additional1>
-            </div>
+            {/* <div className='py-16 dark:bg-stone-900'>
+                <Additional1 className="dark:bg-stone-800" />
+            </div> */}
             <NewsletterSection></NewsletterSection>
         </div>
     );

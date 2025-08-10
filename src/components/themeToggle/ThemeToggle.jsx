@@ -1,24 +1,29 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") === "light" ? "light" : "dark"
-  );
+  // Initialize state with a safe default (dark)
+  const [theme, setTheme] = useState('dark');
 
-  // Load theme from localStorage on component mount
   useEffect(() => {
+    // Check localStorage and matchMedia for theme preference
     const savedTheme = localStorage.getItem("theme");
-    setTheme(savedTheme);
-    document.querySelector("html").setAttribute("data-theme", savedTheme);
-  }, [theme]);
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  // Toggle theme function
+    // Determine initial theme with priority: localStorage > system preference > default
+    const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+    setTheme(initialTheme);
+    document.documentElement.setAttribute("data-theme", initialTheme);
+    localStorage.setItem("theme", initialTheme);
+  }, []); // Empty dependency array to run only once on mount
+
   const handleThemeChange = (event) => {
     const newTheme = event.target.checked ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
   };
+
   return (
     <div>
       <input
@@ -28,7 +33,6 @@ const ThemeToggle = () => {
         checked={theme === "dark"}
         onChange={handleThemeChange}
       />
-
     </div>
   );
 };
